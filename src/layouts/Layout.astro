@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Mohammad Faizal - Full Stack Developer Portfolio" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --gradient-primary: linear-gradient(135deg, #a9927d 0%, #7d674c 100%);
+        --gradient-secondary: linear-gradient(135deg, #7d674c 0%, #a9927d 100%);
+      }
+      
+      /* Animation classes */
+      .fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+      
+      .slide-up {
+        animation: slideUp 0.8s ease-out;
+      }
+      
+      .scale-in {
+        animation: scaleIn 0.5s ease-out;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      @keyframes slideUp {
+        from { 
+          opacity: 0; 
+          transform: translateY(30px); 
+        }
+        to { 
+          opacity: 1; 
+          transform: translateY(0); 
+        }
+      }
+      
+      @keyframes scaleIn {
+        from { 
+          opacity: 0; 
+          transform: scale(0.9); 
+        }
+        to { 
+          opacity: 1; 
+          transform: scale(1); 
+        }
+      }
+      
+      /* Floating animation */
+      .float {
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+    </style>
+  </head>
+  <body class="bg-[#0f0f0f] text-[#e5e5e5] min-h-screen">
+    <slot />
+  </body>
+</html> 

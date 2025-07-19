@@ -1,0 +1,125 @@
+---
+// Hero section with rich dark theme
+---
+
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a]">
+  <div class="absolute inset-0 bg-[#0f0f0f]/50"></div>
+  
+  <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <!-- Greeting -->
+    <div class="mb-6 fade-in">
+      <p class="text-lg sm:text-xl text-[#a9927d] mb-2">Hello, I'm</p>
+    </div>
+    
+    <!-- Name -->
+    <div class="mb-6 slide-up">
+      <h1 class="text-5xl sm:text-7xl lg:text-8xl font-bold mb-4">
+        <span class="gradient-text">Mohammad</span>
+        <br />
+        <span class="gradient-text">Faizal</span>
+      </h1>
+    </div>
+    
+    <!-- Title -->
+    <div class="mb-8 slide-up" style="animation-delay: 0.2s;">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#e5e5e5] mb-4">
+        Full Stack Developer
+      </h2>
+      <p class="text-lg sm:text-xl text-[#cccccc] max-w-2xl mx-auto leading-relaxed">
+        Crafting digital experiences with modern technologies and innovative solutions. 
+        Passionate about building scalable applications that make a difference.
+      </p>
+    </div>
+    
+    <!-- Tech stack badges -->
+    <div class="mb-8 slide-up" style="animation-delay: 0.4s;">
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="tech-badge">React</span>
+        <span class="tech-badge">Node.js</span>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">TypeScript</span>
+        <span class="tech-badge">MongoDB</span>
+        <span class="tech-badge">Docker</span>
+      </div>
+    </div>
+    
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center slide-up" style="animation-delay: 0.6s;">
+      <a href="#projects" class="btn-primary">
+        View My Work
+      </a>
+      <a href="#contact" class="btn-secondary">
+        Get In Touch
+      </a>
+    </div>
+    
+    <!-- Scroll indicator -->
+    
+  </div>
+  
+  <!-- Decorative elements -->
+  <div class="absolute top-1/4 right-10 float">
+    <div class="w-16 h-16 bg-[#a9927d]/20 rounded-lg opacity-60"></div>
+  </div>
+  <div class="absolute bottom-1/3 left-10 float" style="animation-delay: 2s;">
+    <div class="w-12 h-12 bg-[#7d674c]/20 rounded-full opacity-60"></div>
+  </div>
+  <div class="absolute bottom-8 right-10 transform -translate-x-1/2 fade-in" style="animation-delay: 1s;">
+      <div class="flex flex-col items-center">
+        <span class="text-[#a9927d] text-sm mb-2">Scroll to explore</span>
+        <div class="w-6 h-10 border-2 border-[#a9927d] rounded-full flex justify-center">
+          <div class="w-1 h-3 bg-[#a9927d] rounded-full mt-2 animate-bounce"></div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<style>
+  .tech-badge {
+    @apply px-4 py-2 bg-[#1a1a1a]/80 backdrop-blur-sm border border-[#a9927d]/30 rounded-full text-sm font-medium text-[#e5e5e5] hover:bg-[#a9927d] hover:text-white transition-all duration-300 hover:scale-105;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+</style>
+
+<script>
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all animated elements
+  document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+    observer.observe(el);
+  });
+</script> 
