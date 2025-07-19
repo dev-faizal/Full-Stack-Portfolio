@@ -4,7 +4,7 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -12,12 +12,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a9927d;
-  border-radius: 3px;
+  background: linear-gradient(135deg, #a9927d, #7d674c);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7d674c;
+  background: linear-gradient(135deg, #7d674c, #a9927d);
 }
 
 /* Smooth scrolling */
@@ -46,6 +46,14 @@ body {
 
 /* Custom component classes */
 @layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+  
   .gradient-bg {
     background: linear-gradient(135deg, #a9927d 0%, #7d674c 100%);
   }
@@ -83,23 +91,15 @@ body {
   }
   
   .btn-primary {
-    @apply bg-[#a9927d] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#7d674c] transition-colors duration-200;
+    @apply px-8 py-3 gradient-bg text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 transform;
   }
   
   .btn-secondary {
-    @apply bg-[#2a2a2a] text-[#e5e5e5] px-6 py-3 rounded-lg font-medium hover:bg-[#3a3a3a] transition-colors duration-200;
-  }
-  
-  .section-padding {
-    @apply py-16 px-4 sm:px-6 lg:px-8;
-  }
-  
-  .container-custom {
-    @apply max-w-6xl mx-auto;
+    @apply px-8 py-3 border-2 border-[#a9927d] text-[#a9927d] font-semibold rounded-lg hover:bg-[#a9927d] hover:text-white transition-all duration-300 hover:scale-105 transform;
   }
   
   .tech-badge {
-    @apply px-3 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded-full text-sm text-[#e5e5e5] hover:bg-[#a9927d] hover:text-white transition-all duration-300 hover:scale-105;
+    @apply px-4 py-2 bg-[#2a2a2a] border border-[#3a3a3a] rounded-full text-sm text-[#e5e5e5] hover:bg-[#a9927d] hover:text-white transition-all duration-300 hover:scale-105;
   }
   
   .project-link {
@@ -139,4 +139,40 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }

@@ -22,67 +22,187 @@ const { title, description = "Mohammad Faizal - Full Stack Developer Portfolio" 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Custom CSS -->
-    <style>
-      :root {
-        --gradient-primary: linear-gradient(135deg, #a9927d 0%, #7d674c 100%);
-        --gradient-secondary: linear-gradient(135deg, #7d674c 0%, #a9927d 100%);
-      }
-      
-      /* Animation classes */
-      .fade-in {
-        animation: fadeIn 0.6s ease-out;
-      }
-      
-      .slide-up {
-        animation: slideUp 0.8s ease-out;
-      }
-      
-      .scale-in {
-        animation: scaleIn 0.5s ease-out;
-      }
-      
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      
-      @keyframes slideUp {
-        from { 
-          opacity: 0; 
-          transform: translateY(30px); 
-        }
-        to { 
-          opacity: 1; 
-          transform: translateY(0); 
-        }
-      }
-      
-      @keyframes scaleIn {
-        from { 
-          opacity: 0; 
-          transform: scale(0.9); 
-        }
-        to { 
-          opacity: 1; 
-          transform: scale(1); 
-        }
-      }
-      
-      /* Floating animation */
-      .float {
-        animation: float 6s ease-in-out infinite;
-      }
-      
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-      }
-    </style>
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   </head>
-  <body class="bg-[#0f0f0f] text-[#e5e5e5] min-h-screen">
-    <slot />
+  <body class="bg-[#0f0f0f] text-[#e5e5e5] font-['Inter']">
+    <!-- Animated Background -->
+    <div id="animated-bg" class="fixed inset-0 pointer-events-none z-0"></div>
+    
+    <!-- Floating Particles -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+    
+    <!-- Main Content -->
+    <div class="relative z-10">
+      <slot />
+    </div>
+    
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 w-0 h-1 gradient-bg z-50 transition-all duration-300"></div>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-50">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </button>
   </body>
-</html> 
+</html>
+
+<script>
+  // Anime.js animations
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if anime.js is loaded
+    if (typeof anime === 'undefined') {
+      console.log('Anime.js not loaded, skipping animations');
+      return;
+    }
+    
+    // Animated background
+    const animatedBg = document.getElementById('animated-bg');
+    if (animatedBg) {
+      // Create gradient circles
+      for (let i = 0; i < 5; i++) {
+        const circle = document.createElement('div');
+        circle.className = 'absolute rounded-full opacity-20';
+        circle.style.width = Math.random() * 300 + 100 + 'px';
+        circle.style.height = circle.style.width;
+        circle.style.left = Math.random() * 100 + '%';
+        circle.style.top = Math.random() * 100 + '%';
+        circle.style.background = `radial-gradient(circle, ${i % 2 === 0 ? '#a9927d' : '#7d674c'}20, transparent)`;
+        animatedBg.appendChild(circle);
+        
+        // Animate circles
+        anime({
+          targets: circle,
+          translateX: anime.random(-100, 100),
+          translateY: anime.random(-100, 100),
+          scale: anime.random(0.5, 1.5),
+          duration: anime.random(8000, 15000),
+          direction: 'alternate',
+          loop: true,
+          easing: 'easeInOutQuad'
+        });
+      }
+    }
+    
+    // Floating particles
+    const particles = document.getElementById('particles');
+    if (particles) {
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'absolute w-1 h-1 bg-[#a9927d] rounded-full';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.opacity = Math.random() * 0.5 + 0.1;
+        particles.appendChild(particle);
+        
+        // Animate particles
+        anime({
+          targets: particle,
+          translateY: anime.random(-200, 200),
+          translateX: anime.random(-200, 200),
+          scale: anime.random(0.5, 2),
+          opacity: [0.1, 0.8, 0.1],
+          duration: anime.random(3000, 8000),
+          loop: true,
+          easing: 'easeInOutSine'
+        });
+      }
+    }
+    
+    // Scroll progress bar
+    const scrollProgress = document.getElementById('scroll-progress');
+    const scrollToTop = document.getElementById('scroll-to-top');
+    
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.body.offsetHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      
+      if (scrollProgress) {
+        scrollProgress.style.width = scrollPercent + '%';
+      }
+      
+      if (scrollToTop) {
+        if (scrollTop > 300) {
+          scrollToTop.style.opacity = '1';
+          scrollToTop.style.pointerEvents = 'auto';
+        } else {
+          scrollToTop.style.opacity = '0';
+          scrollToTop.style.pointerEvents = 'none';
+        }
+      }
+    });
+    
+    // Scroll to top functionality
+    if (scrollToTop) {
+      scrollToTop.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+    
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add entrance animation
+          anime({
+            targets: entry.target,
+            translateY: [30, 0],
+            opacity: [0, 1],
+            duration: 800,
+            easing: 'easeOutCubic'
+          });
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+    
+    // Parallax effect for hero section
+    const hero = document.querySelector('#hero');
+    if (hero) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        hero.style.transform = `translateY(${rate}px)`;
+      });
+    }
+    
+    // Hover animations for cards
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        anime({
+          targets: card,
+          scale: 1.05,
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        anime({
+          targets: card,
+          scale: 1,
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+      });
+    });
+  });
+</script> 

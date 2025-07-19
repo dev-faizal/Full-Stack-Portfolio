@@ -1,0 +1,538 @@
+---
+// Project details page with comprehensive information
+export async function getStaticPaths() {
+  // Define your projects data
+  const projects = [
+    {
+      slug: 'ai-chatbot-platform',
+      title: 'AI Chatbot Platform',
+      subtitle: 'Intelligent Conversational AI System',
+      description: 'A comprehensive AI-powered chatbot platform that leverages natural language processing and machine learning to provide intelligent conversational experiences.',
+      longDescription: 'This project represents a cutting-edge AI chatbot platform designed to revolutionize customer service and user interaction. Built with modern technologies and advanced AI algorithms, it provides seamless conversational experiences across multiple channels.',
+      image: '/images/projects/ai-chatbot.jpg',
+      gallery: [
+        '/images/projects/ai-chatbot-1.jpg',
+        '/images/projects/ai-chatbot-2.jpg',
+        '/images/projects/ai-chatbot-3.jpg'
+      ],
+      techStack: [
+        { name: 'React', category: 'Frontend', icon: '⚛️' },
+        { name: 'Node.js', category: 'Backend', icon: '🟢' },
+        { name: 'Python', category: 'AI/ML', icon: '🐍' },
+        { name: 'TensorFlow', category: 'AI/ML', icon: '🧠' },
+        { name: 'MongoDB', category: 'Database', icon: '🍃' },
+        { name: 'Docker', category: 'DevOps', icon: '🐳' },
+        { name: 'AWS', category: 'Cloud', icon: '☁️' },
+        { name: 'Socket.io', category: 'Real-time', icon: '⚡' }
+      ],
+      features: [
+        'Natural Language Processing (NLP)',
+        'Multi-language Support',
+        'Real-time Chat Interface',
+        'Sentiment Analysis',
+        'Conversation History',
+        'Admin Dashboard',
+        'Analytics & Reporting',
+        'API Integration'
+      ],
+      challenges: [
+        'Implementing complex NLP algorithms for accurate intent recognition',
+        'Optimizing response times for real-time conversations',
+        'Scaling the system to handle thousands of concurrent users',
+        'Ensuring data privacy and security compliance'
+      ],
+      solutions: [
+        'Used advanced transformer models for better language understanding',
+        'Implemented Redis caching for faster response times',
+        'Designed microservices architecture for horizontal scaling',
+        'Implemented end-to-end encryption and GDPR compliance'
+      ],
+      liveUrl: 'https://ai-chatbot-demo.com',
+      githubUrl: 'https://github.com/dev-faizal/ai-chatbot-platform',
+      duration: '6 months',
+      teamSize: '4 developers',
+      role: 'Full Stack Developer & AI Engineer',
+      status: 'Completed',
+      client: 'TechCorp Inc.',
+      category: 'AI/ML',
+      difficulty: 'Advanced'
+    },
+    {
+      slug: 'ecommerce-platform',
+      title: 'Modern E-commerce Platform',
+      subtitle: 'Scalable Online Shopping Solution',
+      description: 'A feature-rich e-commerce platform with advanced inventory management, payment processing, and analytics.',
+      longDescription: 'This comprehensive e-commerce solution provides everything needed to run a successful online business. From product management to order fulfillment, the platform offers a complete shopping experience with advanced features like real-time inventory tracking, multiple payment gateways, and detailed analytics.',
+      image: '/images/projects/ecommerce.jpg',
+      gallery: [
+        '/images/projects/ecommerce-1.jpg',
+        '/images/projects/ecommerce-2.jpg',
+        '/images/projects/ecommerce-3.jpg'
+      ],
+      techStack: [
+        { name: 'Next.js', category: 'Frontend', icon: '⚡' },
+        { name: 'TypeScript', category: 'Language', icon: '🔷' },
+        { name: 'Stripe', category: 'Payment', icon: '💳' },
+        { name: 'PostgreSQL', category: 'Database', icon: '🐘' },
+        { name: 'Redis', category: 'Cache', icon: '🔴' },
+        { name: 'Vercel', category: 'Deployment', icon: '▲' },
+        { name: 'Tailwind CSS', category: 'Styling', icon: '🎨' },
+        { name: 'Prisma', category: 'ORM', icon: '🔧' }
+      ],
+      features: [
+        'Product Catalog Management',
+        'Shopping Cart & Checkout',
+        'Payment Processing',
+        'Order Management',
+        'Inventory Tracking',
+        'Customer Reviews',
+        'Admin Dashboard',
+        'Analytics & Reports'
+      ],
+      challenges: [
+        'Implementing secure payment processing with multiple gateways',
+        'Optimizing database queries for large product catalogs',
+        'Ensuring smooth user experience across all devices',
+        'Managing inventory in real-time'
+      ],
+      solutions: [
+        'Integrated Stripe and PayPal with proper error handling',
+        'Implemented database indexing and query optimization',
+        'Used responsive design and progressive web app features',
+        'Built real-time inventory system with webhooks'
+      ],
+      liveUrl: 'https://modern-ecommerce-demo.com',
+      githubUrl: 'https://github.com/dev-faizal/ecommerce-platform',
+      duration: '4 months',
+      teamSize: '3 developers',
+      role: 'Lead Frontend Developer',
+      status: 'Completed',
+      client: 'Retail Solutions Ltd.',
+      category: 'E-commerce',
+      difficulty: 'Intermediate'
+    },
+    {
+      slug: 'task-management-app',
+      title: 'Task Management Application',
+      subtitle: 'Collaborative Project Management Tool',
+      description: 'A comprehensive task management application with real-time collaboration, project tracking, and team communication.',
+      longDescription: 'This project management tool helps teams stay organized and productive. It features real-time collaboration, task assignment, progress tracking, and team communication tools. The application is designed to streamline workflow and improve team productivity.',
+      image: '/images/projects/task-management.jpg',
+      gallery: [
+        '/images/projects/task-1.jpg',
+        '/images/projects/task-2.jpg',
+        '/images/projects/task-3.jpg'
+      ],
+      techStack: [
+        { name: 'React', category: 'Frontend', icon: '⚛️' },
+        { name: 'Firebase', category: 'Backend', icon: '🔥' },
+        { name: 'Material-UI', category: 'UI Library', icon: '🎨' },
+        { name: 'Redux', category: 'State Management', icon: '🔄' },
+        { name: 'Socket.io', category: 'Real-time', icon: '⚡' },
+        { name: 'Jest', category: 'Testing', icon: '🧪' },
+        { name: 'Netlify', category: 'Deployment', icon: '🌐' }
+      ],
+      features: [
+        'Task Creation & Assignment',
+        'Real-time Collaboration',
+        'Project Timeline',
+        'Team Communication',
+        'File Sharing',
+        'Progress Tracking',
+        'Notifications',
+        'Mobile Responsive'
+      ],
+      challenges: [
+        'Implementing real-time updates across multiple users',
+        'Managing complex state for collaborative features',
+        'Ensuring data consistency in real-time environment',
+        'Optimizing performance for large project teams'
+      ],
+      solutions: [
+        'Used Firebase Realtime Database for instant updates',
+        'Implemented Redux for centralized state management',
+        'Added conflict resolution and data validation',
+        'Optimized with lazy loading and code splitting'
+      ],
+      liveUrl: 'https://task-management-demo.com',
+      githubUrl: 'https://github.com/dev-faizal/task-management-app',
+      duration: '3 months',
+      teamSize: '2 developers',
+      role: 'Full Stack Developer',
+      status: 'Completed',
+      client: 'StartupXYZ',
+      category: 'Productivity',
+      difficulty: 'Intermediate'
+    }
+  ];
+
+  return projects.map(project => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{project.title} - Mohammad Faizal</title>
+    <meta name="description" content={project.description} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={project.title} />
+    <meta property="og:description" content={project.description} />
+    <meta property="og:image" content={project.image} />
+    <meta property="og:type" content="website" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  </head>
+  <body class="bg-[#0f0f0f] text-[#e5e5e5] font-['Inter']">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0f0f0f]/90 backdrop-blur-md border-b border-[#2a2a2a]">
+      <div class="container-custom">
+        <div class="flex items-center justify-between h-16">
+          <a href="/" class="text-xl font-bold gradient-text">MF</a>
+          <a href="/" class="btn-secondary text-sm">
+            ← Back to Portfolio
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <!-- Breadcrumb -->
+          <nav class="mb-8">
+            <ol class="flex items-center space-x-2 text-sm text-[#888888]">
+              <li><a href="/" class="hover:text-[#a9927d] transition-colors">Home</a></li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <a href="/#projects" class="hover:text-[#a9927d] transition-colors">Projects</a>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-[#e5e5e5]">{project.title}</span>
+              </li>
+            </ol>
+          </nav>
+
+          <!-- Project Header -->
+          <div class="mb-12">
+            <div class="flex items-center space-x-3 mb-4">
+              <span class="px-3 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded-full text-sm text-[#a9927d]">
+                {project.category}
+              </span>
+              <span class="px-3 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded-full text-sm text-[#7d674c]">
+                {project.difficulty}
+              </span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+              <span class="gradient-text">{project.title}</span>
+            </h1>
+            
+            <p class="text-xl sm:text-2xl text-[#cccccc] mb-6">
+              {project.subtitle}
+            </p>
+            
+            <p class="text-lg text-[#e5e5e5] leading-relaxed max-w-3xl">
+              {project.longDescription}
+            </p>
+          </div>
+
+          <!-- Project Stats -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div class="card p-4 text-center">
+              <div class="text-2xl font-bold gradient-text">{project.duration}</div>
+              <div class="text-sm text-[#cccccc]">Duration</div>
+            </div>
+            <div class="card p-4 text-center">
+              <div class="text-2xl font-bold gradient-text">{project.teamSize}</div>
+              <div class="text-sm text-[#cccccc]">Team Size</div>
+            </div>
+            <div class="card p-4 text-center">
+              <div class="text-2xl font-bold gradient-text">{project.status}</div>
+              <div class="text-sm text-[#cccccc]">Status</div>
+            </div>
+            <div class="card p-4 text-center">
+              <div class="text-2xl font-bold gradient-text">{project.role}</div>
+              <div class="text-sm text-[#cccccc]">My Role</div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 mb-12">
+            {project.liveUrl && (
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+                View Live Demo
+              </a>
+            )}
+            {project.githubUrl && (
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                View Code
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Image Gallery -->
+    <section class="py-16 bg-[#1a1a1a]">
+      <div class="container-custom">
+        <h2 class="text-3xl font-bold mb-8 text-center">
+          <span class="gradient-text">Project Gallery</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {project.gallery.map((image, index) => (
+            <div class="card overflow-hidden group">
+              <div class="aspect-video bg-[#2a2a2a] flex items-center justify-center">
+                <div class="text-[#888888] text-sm">Image {index + 1}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-16">
+      <div class="container-custom">
+        <h2 class="text-3xl font-bold mb-8 text-center">
+          <span class="gradient-text">Technology Stack</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {(() => {
+            // Group tech stack by category
+            const groupedTech = project.techStack.reduce((acc, tech) => {
+              if (!acc[tech.category]) {
+                acc[tech.category] = [];
+              }
+              acc[tech.category].push(tech);
+              return acc;
+            }, {});
+            
+            // Convert to array and render
+            return Object.entries(groupedTech).map(([category, techs]) => (
+              <div class="card p-6">
+                <h3 class="text-lg font-semibold text-[#e5e5e5] mb-4">{category}</h3>
+                <div class="space-y-3">
+                  {techs.map(tech => (
+                    <div class="flex items-center space-x-3">
+                      <span class="text-2xl">{tech.icon}</span>
+                      <span class="text-[#cccccc]">{tech.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ));
+          })()}
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 bg-[#1a1a1a]">
+      <div class="container-custom">
+        <h2 class="text-3xl font-bold mb-8 text-center">
+          <span class="gradient-text">Key Features</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {project.features.map(feature => (
+            <div class="card p-6">
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-[#e5e5e5] font-medium">{feature}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenges & Solutions -->
+    <section class="py-16">
+      <div class="container-custom">
+        <div class="grid lg:grid-cols-2 gap-12">
+          <!-- Challenges -->
+          <div>
+            <h2 class="text-3xl font-bold mb-8">
+              <span class="gradient-text">Challenges Faced</span>
+            </h2>
+            <div class="space-y-4">
+              {project.challenges.map((challenge, index) => (
+                <div class="card p-6">
+                  <div class="flex items-start space-x-3">
+                    <div class="w-6 h-6 bg-red-500/20 border border-red-500/30 rounded-full flex items-center justify-center text-red-400 text-sm font-bold">
+                      {index + 1}
+                    </div>
+                    <p class="text-[#e5e5e5]">{challenge}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Solutions -->
+          <div>
+            <h2 class="text-3xl font-bold mb-8">
+              <span class="gradient-text">Solutions Implemented</span>
+            </h2>
+            <div class="space-y-4">
+              {project.solutions.map((solution, index) => (
+                <div class="card p-6">
+                  <div class="flex items-start space-x-3">
+                    <div class="w-6 h-6 bg-green-500/20 border border-green-500/30 rounded-full flex items-center justify-center text-green-400 text-sm font-bold">
+                      {index + 1}
+                    </div>
+                    <p class="text-[#e5e5e5]">{solution}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Projects -->
+    <section class="py-16 bg-[#1a1a1a]">
+      <div class="container-custom">
+        <h2 class="text-3xl font-bold mb-8 text-center">
+          <span class="gradient-text">More Projects</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a href="/project/ecommerce-platform" class="card p-6 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">E-commerce Platform</h3>
+            <p class="text-[#cccccc] text-sm mb-4">Modern online shopping solution with advanced features</p>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#a9927d]">E-commerce</span>
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#7d674c]">Intermediate</span>
+            </div>
+          </a>
+          
+          <a href="/project/task-management-app" class="card p-6 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">Task Management App</h3>
+            <p class="text-[#cccccc] text-sm mb-4">Collaborative project management tool</p>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#a9927d]">Productivity</span>
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#7d674c]">Intermediate</span>
+            </div>
+          </a>
+          
+          <a href="/" class="card p-6 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">View All Projects</h3>
+            <p class="text-[#cccccc] text-sm mb-4">Explore my complete portfolio</p>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#a9927d]">Portfolio</span>
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#7d674c]">All Projects</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-[#2a2a2a]">
+      <div class="container-custom text-center">
+        <p class="text-[#888888]">
+          © 2024 Mohammad Faizal. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .card {
+    @apply bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl shadow-lg backdrop-blur-sm;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#a9927d] to-[#7d674c] bg-clip-text text-transparent;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-3 bg-gradient-to-r from-[#a9927d] to-[#7d674c] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 transform;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-3 border-2 border-[#a9927d] text-[#a9927d] font-semibold rounded-lg hover:bg-[#a9927d] hover:text-white transition-all duration-300 hover:scale-105 transform;
+  }
+</style>
+
+<script>
+  // Animations
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof anime === 'undefined') return;
+    
+    // Stagger animation for cards
+    anime({
+      targets: '.card',
+      opacity: [0, 1],
+      translateY: [30, 0],
+      duration: 800,
+      delay: anime.stagger(100),
+      easing: 'easeOutCubic'
+    });
+    
+    // Hover animations
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        anime({
+          targets: card,
+          scale: 1.02,
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        anime({
+          targets: card,
+          scale: 1,
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+      });
+    });
+  });
+</script> 

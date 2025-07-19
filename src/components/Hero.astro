@@ -1,125 +1,359 @@
 ---
-// Hero section with rich dark theme
+// Hero section with unified rich dark theme and enhanced anime.js animations
 ---
 
-<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a]">
-  <div class="absolute inset-0 bg-[#0f0f0f]/50"></div>
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f]"></div>
   
-  <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-    <!-- Greeting -->
-    <div class="mb-6 fade-in">
-      <p class="text-lg sm:text-xl text-[#a9927d] mb-2">Hello, I'm</p>
-    </div>
-    
-    <!-- Name -->
-    <div class="mb-6 slide-up">
-      <h1 class="text-5xl sm:text-7xl lg:text-8xl font-bold mb-4">
-        <span class="gradient-text">Mohammad</span>
-        <br />
-        <span class="gradient-text">Faizal</span>
-      </h1>
-    </div>
-    
-    <!-- Title -->
-    <div class="mb-8 slide-up" style="animation-delay: 0.2s;">
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#e5e5e5] mb-4">
-        Full Stack Developer
-      </h2>
-      <p class="text-lg sm:text-xl text-[#cccccc] max-w-2xl mx-auto leading-relaxed">
-        Crafting digital experiences with modern technologies and innovative solutions. 
-        Passionate about building scalable applications that make a difference.
-      </p>
-    </div>
-    
-    <!-- Tech stack badges -->
-    <div class="mb-8 slide-up" style="animation-delay: 0.4s;">
-      <div class="flex flex-wrap justify-center gap-3">
-        <span class="tech-badge">React</span>
-        <span class="tech-badge">Node.js</span>
-        <span class="tech-badge">Python</span>
-        <span class="tech-badge">TypeScript</span>
-        <span class="tech-badge">MongoDB</span>
-        <span class="tech-badge">Docker</span>
+  <!-- Animated background elements -->
+  <div class="absolute inset-0">
+    <div class="absolute top-20 left-20 w-32 h-32 bg-[#a9927d]/10 rounded-full blur-xl"></div>
+    <div class="absolute bottom-20 right-20 w-40 h-40 bg-[#7d674c]/10 rounded-full blur-xl"></div>
+    <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-[#a9927d]/5 rounded-full blur-lg"></div>
+    <div class="absolute top-1/3 right-1/4 w-20 h-20 bg-[#7d674c]/8 rounded-full blur-lg"></div>
+    <div class="absolute bottom-1/3 left-1/3 w-16 h-16 bg-[#a9927d]/6 rounded-full blur-md"></div>
+  </div>
+  
+  <!-- Floating particles -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="particle absolute w-2 h-2 bg-[#a9927d]/30 rounded-full" style="top: 20%; left: 10%;"></div>
+    <div class="particle absolute w-1 h-1 bg-[#7d674c]/40 rounded-full" style="top: 60%; left: 80%;"></div>
+    <div class="particle absolute w-1.5 h-1.5 bg-[#a9927d]/25 rounded-full" style="top: 80%; left: 20%;"></div>
+    <div class="particle absolute w-1 h-1 bg-[#7d674c]/35 rounded-full" style="top: 30%; left: 70%;"></div>
+    <div class="particle absolute w-2 h-2 bg-[#a9927d]/20 rounded-full" style="top: 70%; left: 60%;"></div>
+  </div>
+  
+  <div class="container-custom relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left Content -->
+      <div class="text-left max-w-2xl">
+        <!-- Greeting -->
+        <div class="mb-4">
+          <p class="text-lg text-[#a9927d] font-medium">
+            👋 Hello, I'm
+          </p>
+        </div>
+        
+        <!-- Main heading with typing animation -->
+        <h1 class="text-6xl font-bold mb-6">
+          <span class="gradient-text">Mohammad Faizal</span>
+        </h1>
+        
+        <!-- Subtitle with fade-in animation -->
+        <p class="text-xl sm:text-2xl lg:text-3xl text-[#cccccc] mb-6">
+          Full Stack Developer & AI Enthusiast
+        </p>
+        
+        <!-- Description with slide-up animation -->
+        <p class="text-lg sm:text-xl text-[#e5e5e5] mb-8 leading-relaxed">
+          Crafting innovative digital experiences with modern technologies. 
+          Specializing in React, Node.js, and AI-powered applications.
+        </p>
+        
+        <!-- Tech badges with staggered animation -->
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="tech-badge">React</span>
+          <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">TypeScript</span>
+          <span class="tech-badge">AI/ML</span>
+          <span class="tech-badge">DevOps</span>
+        </div>
+        
+        <!-- Call to action buttons -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/projects" class="btn-primary group">
+            <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+            </svg>
+            View My Work
+          </a>
+          <a href="#contact" class="btn-secondary group">
+            <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            Get In Touch
+          </a>
+        </div>
+        
+        <!-- Stats with counter animation -->
+        <div class="grid grid-cols-3 gap-6 mt-12">
+          <div class="text-center">
+            <div class="text-3xl font-bold gradient-text counter" data-target="4">0</div>
+            <div class="text-[#cccccc] text-sm">Years Experience</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold gradient-text counter" data-target="20">0</div>
+            <div class="text-[#cccccc] text-sm">Projects Completed</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold gradient-text counter" data-target="15">0</div>
+            <div class="text-[#cccccc] text-sm">Technologies</div>
+          </div>
+        </div>
       </div>
-    </div>
-    
-    <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center slide-up" style="animation-delay: 0.6s;">
-      <a href="#projects" class="btn-primary">
-        View My Work
-      </a>
-      <a href="#contact" class="btn-secondary">
-        Get In Touch
-      </a>
-    </div>
-    
-    <!-- Scroll indicator -->
-    
-  </div>
-  
-  <!-- Decorative elements -->
-  <div class="absolute top-1/4 right-10 float">
-    <div class="w-16 h-16 bg-[#a9927d]/20 rounded-lg opacity-60"></div>
-  </div>
-  <div class="absolute bottom-1/3 left-10 float" style="animation-delay: 2s;">
-    <div class="w-12 h-12 bg-[#7d674c]/20 rounded-full opacity-60"></div>
-  </div>
-  <div class="absolute bottom-8 right-10 transform -translate-x-1/2 fade-in" style="animation-delay: 1s;">
-      <div class="flex flex-col items-center">
-        <span class="text-[#a9927d] text-sm mb-2">Scroll to explore</span>
-        <div class="w-6 h-10 border-2 border-[#a9927d] rounded-full flex justify-center">
-          <div class="w-1 h-3 bg-[#a9927d] rounded-full mt-2 animate-bounce"></div>
+      
+      <!-- Right Content - Profile Image -->
+      <div class="relative flex justify-center lg:justify-end">
+        <div class="relative">
+          <!-- Main profile image -->
+          <div class="relative w-80 h-80 lg:w-96 lg:h-96">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#a9927d] to-[#7d674c] rounded-full blur-xl opacity-30 animate-pulse"></div>
+            <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-[#a9927d]/20 shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                alt="Mohammad Faizal" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            
+            <!-- Floating elements around profile -->
+            <div class="absolute -top-4 -right-4 w-8 h-8 bg-[#a9927d] rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            
+            <div class="absolute -bottom-4 -left-4 w-8 h-8 bg-[#7d674c] rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </div>
+            
+            <div class="absolute top-1/2 -right-8 w-6 h-6 bg-[#a9927d]/80 rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+          </div>
+          
+          <!-- Background decorative elements -->
+          <div class="absolute -top-8 -left-8 w-16 h-16 bg-[#a9927d]/10 rounded-full blur-lg"></div>
+          <div class="absolute -bottom-8 -right-8 w-20 h-20 bg-[#7d674c]/10 rounded-full blur-lg"></div>
         </div>
       </div>
     </div>
+  </div>
+  
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+    <div class="flex flex-col items-center text-[#a9927d] animate-bounce">
+      <span class="text-sm mb-2">Scroll Down</span>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <style>
   .tech-badge {
-    @apply px-4 py-2 bg-[#1a1a1a]/80 backdrop-blur-sm border border-[#a9927d]/30 rounded-full text-sm font-medium text-[#e5e5e5] hover:bg-[#a9927d] hover:text-white transition-all duration-300 hover:scale-105;
+    @apply px-4 py-2 bg-[#2a2a2a] border border-[#3a3a3a] rounded-full text-sm text-[#e5e5e5] hover:bg-[#a9927d] hover:text-white transition-all duration-300 hover:scale-105;
   }
   
-  .fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
-    opacity: 0;
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
   }
   
-  .slide-up {
-    animation: slideUp 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(30px);
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.05); }
   }
   
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-  
-  @keyframes slideUp {
-    to { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 </style>
 
 <script>
-  // Intersection Observer for animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
+  // Enhanced Hero animations with anime.js
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if anime.js is loaded
+    if (typeof anime === 'undefined') {
+      console.log('Anime.js not loaded, skipping animations');
+      return;
+    }
+    
+    // Staggered entrance animations
+    const timeline = anime.timeline({
+      easing: 'easeOutCubic'
     });
-  }, observerOptions);
-  
-  // Observe all animated elements
-  document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
-    observer.observe(el);
+    
+    // Greeting animation
+    timeline.add({
+      targets: '#hero p:first-of-type',
+      opacity: [0, 1],
+      translateY: [30, 0],
+      duration: 800
+    });
+    
+    // Hero title animation
+    timeline.add({
+      targets: '#hero h1',
+      opacity: [0, 1],
+      translateY: [30, 0],
+      duration: 1000
+    }, '-=400');
+    
+    // Subtitle animation
+    timeline.add({
+      targets: '#hero p:nth-of-type(2)',
+      opacity: [0, 1],
+      translateY: [30, 0],
+      duration: 800
+    }, '-=600');
+    
+    // Description animation
+    timeline.add({
+      targets: '#hero p:nth-of-type(3)',
+      opacity: [0, 1],
+      translateY: [30, 0],
+      duration: 800
+    }, '-=600');
+    
+    // Tech badges animation
+    timeline.add({
+      targets: '#hero .tech-badge',
+      opacity: [0, 1],
+      translateY: [30, 0],
+      scale: [0.8, 1],
+      duration: 600,
+      delay: anime.stagger(100)
+    }, '-=400');
+    
+    // Buttons animation
+    timeline.add({
+      targets: '#hero .btn-primary, #hero .btn-secondary',
+      opacity: [0, 1],
+      translateY: [30, 0],
+      scale: [0.9, 1],
+      duration: 800,
+      delay: anime.stagger(200)
+    }, '-=400');
+    
+    // Stats animation
+    timeline.add({
+      targets: '#hero .counter',
+      opacity: [0, 1],
+      translateY: [30, 0],
+      duration: 800
+    }, '-=400');
+    
+    // Profile image animation
+    timeline.add({
+      targets: '#hero .relative.w-80',
+      opacity: [0, 1],
+      scale: [0.8, 1],
+      translateY: [30, 0],
+      duration: 1000,
+      easing: 'easeOutBack'
+    }, '-=600');
+    
+    // Floating elements animation
+    timeline.add({
+      targets: '#hero .absolute.-top-4, #hero .absolute.-bottom-4, #hero .absolute.top-1/2',
+      opacity: [0, 1],
+      scale: [0.5, 1],
+      duration: 600,
+      delay: anime.stagger(200)
+    }, '-=400');
+    
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      
+      anime({
+        targets: counter,
+        innerHTML: [0, target],
+        duration: 2000,
+        easing: 'easeOutCubic',
+        round: 1,
+        delay: 2000
+      });
+    });
+    
+    // Floating animation for background elements
+    anime({
+      targets: '#hero .absolute.top-20.left-20',
+      translateY: [-15, 15],
+      translateX: [-5, 5],
+      duration: 4000,
+      direction: 'alternate',
+      loop: true,
+      easing: 'easeInOutSine'
+    });
+    
+    anime({
+      targets: '#hero .absolute.bottom-20.right-20',
+      translateY: [15, -15],
+      translateX: [5, -5],
+      duration: 5000,
+      direction: 'alternate',
+      loop: true,
+      easing: 'easeInOutSine'
+    });
+    
+    anime({
+      targets: '#hero .absolute.top-1/2.left-1/4',
+      translateX: [-8, 8],
+      translateY: [-3, 3],
+      duration: 3500,
+      direction: 'alternate',
+      loop: true,
+      easing: 'easeInOutSine'
+    });
+    
+    // Particle animations
+    anime({
+      targets: '.particle',
+      translateY: [-20, 20],
+      translateX: [-10, 10],
+      opacity: [0.2, 0.8, 0.2],
+      scale: [0.8, 1.2, 0.8],
+      duration: anime.random(3000, 6000),
+      direction: 'alternate',
+      loop: true,
+      easing: 'easeInOutSine',
+      delay: anime.stagger(500)
+    });
+    
+    // Floating elements continuous animation
+    anime({
+      targets: '#hero .absolute.-top-4, #hero .absolute.-bottom-4, #hero .absolute.top-1/2',
+      translateY: [-5, 5],
+      rotate: [-5, 5],
+      duration: 3000,
+      direction: 'alternate',
+      loop: true,
+      easing: 'easeInOutSine',
+      delay: anime.stagger(1000)
+    });
+    
+    // Profile image hover effect
+    const profileContainer = document.querySelector('#hero .relative.w-80');
+    if (profileContainer) {
+      profileContainer.addEventListener('mouseenter', () => {
+        anime({
+          targets: '#hero .absolute.-top-4, #hero .absolute.-bottom-4, #hero .absolute.top-1/2',
+          scale: [1, 1.1],
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+      });
+      
+      profileContainer.addEventListener('mouseleave', () => {
+        anime({
+          targets: '#hero .absolute.-top-4, #hero .absolute.-bottom-4, #hero .absolute.top-1/2',
+          scale: [1.1, 1],
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+      });
+    }
   });
 </script> 
