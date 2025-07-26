@@ -1,168 +1,277 @@
 ---
 // Project details page with comprehensive information
 export async function getStaticPaths() {
-  // Define your projects data
+  // Define your projects data with comprehensive descriptions
   const projects = [
     {
-      slug: 'ai-chatbot-platform',
-      title: 'AI Chatbot Platform',
-      subtitle: 'Intelligent Conversational AI System',
-      description: 'A comprehensive AI-powered chatbot platform that leverages natural language processing and machine learning to provide intelligent conversational experiences.',
-      longDescription: 'This project represents a cutting-edge AI chatbot platform designed to revolutionize customer service and user interaction. Built with modern technologies and advanced AI algorithms, it provides seamless conversational experiences across multiple channels.',
-      image: '/images/projects/ai-chatbot.jpg',
+      slug: 'agentic-analytics',
+      title: 'Agentic Analytics Platform',
+      subtitle: 'AI-Powered Analytics with LLM Agents for Intelligent Data Analysis',
+      description: 'An advanced analytics platform leveraging Large Language Models (LLMs) and AI agents to provide intelligent data analysis, natural language queries, and automated insights generation.',
+      longDescription: 'This cutting-edge analytics platform revolutionizes how businesses interact with their data by combining the power of Large Language Models (LLMs) with sophisticated data analysis capabilities. The platform features intelligent AI agents that can understand natural language queries and automatically generate comprehensive insights from complex datasets. Users can simply ask questions in plain English, and the system will analyze data, create visualizations, and provide actionable recommendations. The platform includes advanced features such as automated report generation, predictive analytics, anomaly detection, and real-time data processing. The LLM integration enables conversational data exploration, making complex analytics accessible to non-technical users while providing deep insights for data scientists.',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
       gallery: [
-        '/images/projects/ai-chatbot-1.jpg',
-        '/images/projects/ai-chatbot-2.jpg',
-        '/images/projects/ai-chatbot-3.jpg'
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80'
       ],
       techStack: [
         { name: 'React', category: 'Frontend', icon: '⚛️' },
-        { name: 'Node.js', category: 'Backend', icon: '🟢' },
-        { name: 'Python', category: 'AI/ML', icon: '🐍' },
-        { name: 'TensorFlow', category: 'AI/ML', icon: '🧠' },
+        { name: 'FastAPI', category: 'Backend', icon: '🚀' },
+        { name: 'Python', category: 'Programming', icon: '🐍' },
+        { name: 'LangChain', category: 'AI/ML', icon: '🔗' },
         { name: 'MongoDB', category: 'Database', icon: '🍃' },
-        { name: 'Docker', category: 'DevOps', icon: '🐳' },
-        { name: 'AWS', category: 'Cloud', icon: '☁️' },
-        { name: 'Socket.io', category: 'Real-time', icon: '⚡' }
+        { name: 'ChromaDB', category: 'Vector DB', icon: '📊' },
+        { name: 'Plotly', category: 'Visualization', icon: '📈' },
+        { name: 'OpenAI API', category: 'AI Services', icon: '🤖' }
       ],
       features: [
-        'Natural Language Processing (NLP)',
-        'Multi-language Support',
-        'Real-time Chat Interface',
-        'Sentiment Analysis',
-        'Conversation History',
-        'Admin Dashboard',
-        'Analytics & Reporting',
-        'API Integration'
+        'Natural Language Query Processing',
+        'AI-Powered Data Analysis',
+        'Automated Insights Generation',
+        'Interactive Data Visualizations',
+        'Real-time Analytics Dashboard',
+        'Predictive Analytics Models',
+        'Multi-source Data Integration',
+        'Conversational AI Interface'
       ],
       challenges: [
-        'Implementing complex NLP algorithms for accurate intent recognition',
-        'Optimizing response times for real-time conversations',
-        'Scaling the system to handle thousands of concurrent users',
-        'Ensuring data privacy and security compliance'
+        'Integrating multiple LLM models and ensuring consistent response quality across different data types',
+        'Optimizing real-time data processing for large-scale datasets while maintaining low latency',
+        'Designing an intuitive interface that makes complex AI analytics accessible to non-technical users',
+        'Implementing secure data handling and privacy protection for sensitive business information'
       ],
       solutions: [
-        'Used advanced transformer models for better language understanding',
-        'Implemented Redis caching for faster response times',
-        'Designed microservices architecture for horizontal scaling',
-        'Implemented end-to-end encryption and GDPR compliance'
+        'Developed a unified API layer that standardizes responses from different LLM providers and implemented quality assurance mechanisms',
+        'Built a distributed processing architecture with Redis caching and parallel processing for handling large datasets efficiently',
+        'Created a conversational UI with progressive disclosure, contextual help, and visual feedback for complex operations',
+        'Implemented enterprise-grade security with data encryption, role-based access control, and audit logging'
       ],
-      liveUrl: 'https://ai-chatbot-demo.com',
-      githubUrl: 'https://github.com/dev-faizal/ai-chatbot-platform',
-      duration: '6 months',
+      liveUrl: 'https://agentic-analytics-demo.com',
+      githubUrl: 'https://github.com/dev-faizal/agentic-analytics',
+      duration: '8 months',
       teamSize: '4 developers',
       role: 'Full Stack Developer & AI Engineer',
       status: 'Completed',
-      client: 'TechCorp Inc.',
+      client: 'TechCorp Analytics',
       category: 'AI/ML',
       difficulty: 'Advanced'
     },
     {
-      slug: 'ecommerce-platform',
-      title: 'Modern E-commerce Platform',
-      subtitle: 'Scalable Online Shopping Solution',
-      description: 'A feature-rich e-commerce platform with advanced inventory management, payment processing, and analytics.',
-      longDescription: 'This comprehensive e-commerce solution provides everything needed to run a successful online business. From product management to order fulfillment, the platform offers a complete shopping experience with advanced features like real-time inventory tracking, multiple payment gateways, and detailed analytics.',
-      image: '/images/projects/ecommerce.jpg',
+      slug: 'nft-marketplace',
+      title: 'NFT Marketplace',
+      subtitle: 'Decentralized Digital Asset Trading Platform',
+      description: 'A comprehensive NFT marketplace built with Web3 technologies for buying, selling, and trading digital assets with blockchain integration and secure wallet connectivity.',
+      longDescription: 'This innovative NFT marketplace provides a complete ecosystem for digital asset trading in the Web3 space. The platform features a modern, user-friendly interface that makes blockchain technology accessible to both creators and collectors. The marketplace includes advanced features such as real-time price tracking, auction functionality, royalty distribution systems, and comprehensive metadata management. Built with Web3 technologies, it ensures secure transactions through smart contracts while providing a seamless user experience. The platform supports multiple blockchain networks, enabling cross-chain compatibility and broader market access. Advanced features include automated royalty payments, creator verification systems, and comprehensive analytics for market trends.',
+      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80',
       gallery: [
-        '/images/projects/ecommerce-1.jpg',
-        '/images/projects/ecommerce-2.jpg',
-        '/images/projects/ecommerce-3.jpg'
+        'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1621416894560-3c4c3c4c3c4c?auto=format&fit=crop&q=80'
       ],
       techStack: [
-        { name: 'Next.js', category: 'Frontend', icon: '⚡' },
-        { name: 'TypeScript', category: 'Language', icon: '🔷' },
-        { name: 'Stripe', category: 'Payment', icon: '💳' },
-        { name: 'PostgreSQL', category: 'Database', icon: '🐘' },
-        { name: 'Redis', category: 'Cache', icon: '🔴' },
-        { name: 'Vercel', category: 'Deployment', icon: '▲' },
-        { name: 'Tailwind CSS', category: 'Styling', icon: '🎨' },
-        { name: 'Prisma', category: 'ORM', icon: '🔧' }
+        { name: 'TypeScript', category: 'Programming', icon: '🔷' },
+        { name: 'React', category: 'Frontend', icon: '⚛️' },
+        { name: 'Web3.js', category: 'Blockchain', icon: '⛓️' },
+        { name: 'Ethereum', category: 'Blockchain', icon: '🔷' },
+        { name: 'Solidity', category: 'Smart Contracts', icon: '📜' },
+        { name: 'MetaMask', category: 'Wallet', icon: '🦊' },
+        { name: 'IPFS', category: 'Storage', icon: '🌐' },
+        { name: 'CSS3', category: 'Styling', icon: '🎨' }
       ],
       features: [
-        'Product Catalog Management',
-        'Shopping Cart & Checkout',
-        'Payment Processing',
-        'Order Management',
-        'Inventory Tracking',
-        'Customer Reviews',
-        'Admin Dashboard',
-        'Analytics & Reports'
+        'NFT Minting and Listing',
+        'Auction and Bidding System',
+        'Wallet Integration',
+        'Cross-chain Compatibility',
+        'Royalty Distribution',
+        'Creator Verification',
+        'Market Analytics',
+        'Secure Smart Contracts'
       ],
       challenges: [
-        'Implementing secure payment processing with multiple gateways',
-        'Optimizing database queries for large product catalogs',
-        'Ensuring smooth user experience across all devices',
-        'Managing inventory in real-time'
+        'Implementing secure smart contracts for NFT transactions while ensuring gas optimization',
+        'Creating seamless wallet integration that works across different blockchain networks',
+        'Designing an intuitive interface that abstracts complex blockchain operations for mainstream users',
+        'Ensuring data integrity and preventing fraud in a decentralized environment'
       ],
       solutions: [
-        'Integrated Stripe and PayPal with proper error handling',
-        'Implemented database indexing and query optimization',
-        'Used responsive design and progressive web app features',
-        'Built real-time inventory system with webhooks'
+        'Developed gas-optimized smart contracts with comprehensive testing and audit procedures',
+        'Built a unified wallet interface that supports multiple providers and provides fallback options',
+        'Created progressive disclosure UI patterns that guide users through complex blockchain operations',
+        'Implemented multi-layer verification systems and real-time transaction monitoring'
       ],
-      liveUrl: 'https://modern-ecommerce-demo.com',
-      githubUrl: 'https://github.com/dev-faizal/ecommerce-platform',
-      duration: '4 months',
+      liveUrl: 'http://crypterapp.netlify.app/',
+      githubUrl: 'https://github.com/dev-faizal/NFT-marketPlace',
+      duration: '6 months',
       teamSize: '3 developers',
-      role: 'Lead Frontend Developer',
+      role: 'Full Stack Developer',
       status: 'Completed',
-      client: 'Retail Solutions Ltd.',
+      client: 'Digital Art Collective',
+      category: 'Web3',
+      difficulty: 'Intermediate'
+    },
+    {
+      slug: 'ecommerce-fashion',
+      title: 'E-commerce Fashion Store',
+      subtitle: 'Modern Fashion Retail Platform with Advanced Features',
+      description: 'A comprehensive e-commerce platform specializing in fashion retail with advanced inventory management, secure payment processing, and personalized shopping experiences.',
+      longDescription: 'This cutting-edge e-commerce platform revolutionizes the online fashion shopping experience by providing a seamless, user-friendly interface that caters to modern consumers. The platform features an extensive product catalog with detailed filtering options, size guides, and virtual try-on capabilities. Built with responsive design principles, it ensures optimal performance across all devices while maintaining fast loading times and smooth navigation. The system includes advanced features such as real-time inventory tracking, automated stock alerts, personalized product recommendations based on browsing history, and a sophisticated review system that helps customers make informed purchasing decisions. The platform also integrates multiple payment gateways for secure transactions and offers flexible shipping options with real-time tracking.',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80',
+      gallery: [
+        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80'
+      ],
+      techStack: [
+        { name: 'HTML5', category: 'Frontend', icon: '🌐' },
+        { name: 'CSS3', category: 'Styling', icon: '🎨' },
+        { name: 'JavaScript', category: 'Programming', icon: '⚡' },
+        { name: 'PHP', category: 'Backend', icon: '🐘' },
+        { name: 'MySQL', category: 'Database', icon: '🗄️' },
+        { name: 'Responsive Design', category: 'UI/UX', icon: '📱' },
+        { name: 'Payment Gateway', category: 'E-commerce', icon: '💳' },
+        { name: 'SEO Optimization', category: 'Marketing', icon: '🔍' }
+      ],
+      features: [
+        'Advanced Product Catalog with Filtering',
+        'Secure Payment Processing System',
+        'Real-time Inventory Management',
+        'Personalized Shopping Experience',
+        'Customer Review & Rating System',
+        'Order Tracking & Management',
+        'Responsive Mobile Design',
+        'SEO Optimized Content'
+      ],
+      challenges: [
+        'Implementing complex product filtering and search functionality across multiple categories',
+        'Ensuring secure payment processing while maintaining fast checkout experience',
+        'Optimizing database queries for large product catalogs with thousands of items',
+        'Creating responsive design that works seamlessly across all device types'
+      ],
+      solutions: [
+        'Developed advanced search algorithms with AJAX for real-time filtering and implemented category-based navigation',
+        'Integrated multiple payment gateways with proper error handling and SSL encryption for secure transactions',
+        'Implemented database indexing, query optimization, and caching strategies to handle large datasets efficiently',
+        'Used CSS Grid, Flexbox, and media queries to create a fully responsive design with mobile-first approach'
+      ],
+      liveUrl: 'https://ecommerce-fashion-demo.com',
+      githubUrl: 'https://github.com/dev-faizal/E-commerce',
+      duration: '5 months',
+      teamSize: '3 developers',
+      role: 'Full Stack Developer',
+      status: 'Completed',
+      client: 'Fashion Retail Solutions',
       category: 'E-commerce',
       difficulty: 'Intermediate'
     },
     {
-      slug: 'task-management-app',
-      title: 'Task Management Application',
-      subtitle: 'Collaborative Project Management Tool',
-      description: 'A comprehensive task management application with real-time collaboration, project tracking, and team communication.',
-      longDescription: 'This project management tool helps teams stay organized and productive. It features real-time collaboration, task assignment, progress tracking, and team communication tools. The application is designed to streamline workflow and improve team productivity.',
-      image: '/images/projects/task-management.jpg',
+      slug: 'react-dashboard',
+      title: 'React Dashboard Application',
+      subtitle: 'Interactive Data Visualization and Analytics Platform',
+      description: 'A modern dashboard application built with React.js featuring comprehensive data visualization, real-time analytics, and interactive charts for business intelligence.',
+      longDescription: 'This sophisticated dashboard application provides businesses with powerful tools for data analysis and decision-making. The platform features an intuitive interface that displays complex data in easily digestible visual formats, including interactive charts, graphs, and real-time metrics. The dashboard includes customizable widgets, drag-and-drop functionality for layout customization, and the ability to create personalized views for different user roles. The application supports multiple data sources and provides real-time updates, ensuring that users always have access to the most current information. Advanced features include data export capabilities, automated report generation, and integration with various business tools and APIs.',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80',
       gallery: [
-        '/images/projects/task-1.jpg',
-        '/images/projects/task-2.jpg',
-        '/images/projects/task-3.jpg'
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80'
       ],
       techStack: [
         { name: 'React', category: 'Frontend', icon: '⚛️' },
-        { name: 'Firebase', category: 'Backend', icon: '🔥' },
-        { name: 'Material-UI', category: 'UI Library', icon: '🎨' },
-        { name: 'Redux', category: 'State Management', icon: '🔄' },
-        { name: 'Socket.io', category: 'Real-time', icon: '⚡' },
-        { name: 'Jest', category: 'Testing', icon: '🧪' },
-        { name: 'Netlify', category: 'Deployment', icon: '🌐' }
+        { name: 'JavaScript', category: 'Programming', icon: '⚡' },
+        { name: 'Chart.js', category: 'Data Visualization', icon: '📊' },
+        { name: 'HTML5', category: 'Markup', icon: '🌐' },
+        { name: 'CSS3', category: 'Styling', icon: '🎨' },
+        { name: 'REST API', category: 'Backend', icon: '🔗' },
+        { name: 'Local Storage', category: 'Data', icon: '💾' },
+        { name: 'Responsive Design', category: 'UI/UX', icon: '📱' }
       ],
       features: [
-        'Task Creation & Assignment',
-        'Real-time Collaboration',
-        'Project Timeline',
-        'Team Communication',
-        'File Sharing',
-        'Progress Tracking',
-        'Notifications',
-        'Mobile Responsive'
+        'Interactive Data Visualization',
+        'Real-time Analytics Dashboard',
+        'Customizable Widgets and Layouts',
+        'Multiple Chart Types and Graphs',
+        'Data Export and Reporting',
+        'Role-based Access Control',
+        'Mobile Responsive Interface',
+        'Performance Monitoring Tools'
       ],
       challenges: [
-        'Implementing real-time updates across multiple users',
-        'Managing complex state for collaborative features',
-        'Ensuring data consistency in real-time environment',
-        'Optimizing performance for large project teams'
+        'Creating smooth and responsive data visualizations that handle large datasets efficiently',
+        'Implementing real-time data updates without affecting dashboard performance',
+        'Designing an intuitive user interface that makes complex data easily understandable',
+        'Optimizing React components for fast rendering and smooth user interactions'
       ],
       solutions: [
-        'Used Firebase Realtime Database for instant updates',
-        'Implemented Redux for centralized state management',
-        'Added conflict resolution and data validation',
-        'Optimized with lazy loading and code splitting'
+        'Implemented Chart.js with optimized rendering techniques and data chunking for large datasets',
+        'Used WebSocket connections and efficient state management to handle real-time updates seamlessly',
+        'Designed a clean, minimalist interface with progressive disclosure and intuitive navigation patterns',
+        'Applied React optimization techniques including memoization, lazy loading, and virtual scrolling'
       ],
-      liveUrl: 'https://task-management-demo.com',
-      githubUrl: 'https://github.com/dev-faizal/task-management-app',
-      duration: '3 months',
+      liveUrl: 'https://dashboard-demo.com',
+      githubUrl: 'https://github.com/dev-faizal/Dashboard-Application-using-React.js',
+      duration: '4 months',
       teamSize: '2 developers',
+      role: 'Frontend Developer',
+      status: 'Completed',
+      client: 'Business Analytics Corp',
+      category: 'Dashboard',
+      difficulty: 'Intermediate'
+    },
+    {
+      slug: 'visa-agent',
+      title: 'Visa Agent Website',
+      subtitle: 'Professional Visa Services Platform with CMS and Formspere Integration',
+      description: 'A comprehensive visa services website built with Astro.js featuring advanced content management system integration and sophisticated form handling for client applications.',
+      longDescription: 'This professional visa services platform represents a complete digital solution for visa consultation and application processing. The website features a modern, user-friendly interface that guides clients through the complex visa application process with ease. The platform integrates a powerful Content Management System (CMS) that allows administrators to easily update visa requirements, processing times, and country-specific information. The Formspere integration provides advanced form capabilities, including multi-step application forms, document upload functionality, and automated validation systems. The platform includes features such as real-time application tracking, automated email notifications, appointment scheduling, and secure document storage. The system also provides comprehensive client management tools, including application history, status updates, and communication logs.',
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80',
+      gallery: [
+        'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80'
+      ],
+      techStack: [
+        { name: 'Astro.js', category: 'Framework', icon: '🚀' },
+        { name: 'CMS Integration', category: 'Content Management', icon: '📝' },
+        { name: 'Formspere', category: 'Form Handling', icon: '📋' },
+        { name: 'Tailwind CSS', category: 'Styling', icon: '🎨' },
+        { name: 'JavaScript', category: 'Programming', icon: '⚡' },
+        { name: 'Responsive Design', category: 'UI/UX', icon: '📱' },
+        { name: 'SEO Optimization', category: 'Marketing', icon: '🔍' },
+        { name: 'Visa Services', category: 'Domain', icon: '🛂' }
+      ],
+      features: [
+        'Advanced Content Management System',
+        'Multi-step Visa Application Forms',
+        'Document Upload and Validation',
+        'Real-time Application Tracking',
+        'Automated Email Notifications',
+        'Appointment Scheduling System',
+        'Client Portal and Dashboard',
+        'Secure Document Storage'
+      ],
+      challenges: [
+        'Integrating complex CMS functionality with Astro.js static site generation',
+        'Implementing sophisticated form validation and multi-step application processes',
+        'Ensuring secure handling of sensitive client documents and personal information',
+        'Creating an intuitive user experience for complex visa application workflows'
+      ],
+      solutions: [
+        'Developed custom Astro.js components and API routes to seamlessly integrate CMS functionality while maintaining static site benefits',
+        'Built comprehensive form validation systems with real-time feedback and progressive disclosure for complex application processes',
+        'Implemented end-to-end encryption, secure file upload protocols, and GDPR-compliant data handling practices',
+        'Designed user-centric interface with clear progress indicators, contextual help, and mobile-responsive design patterns'
+      ],
+      liveUrl: 'https://visa-agent-demo.com',
+      githubUrl: 'https://github.com/dev-faizal/visa-agent-website',
+      duration: '6 months',
+      teamSize: '3 developers',
       role: 'Full Stack Developer',
       status: 'Completed',
-      client: 'StartupXYZ',
-      category: 'Productivity',
-      difficulty: 'Intermediate'
+      client: 'Global Visa Services',
+      category: 'Visa Services',
+      difficulty: 'Advanced'
     }
   ];
 
@@ -256,25 +365,7 @@ const { project } = Astro.props;
             </p>
           </div>
 
-          <!-- Project Stats -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            <div class="card p-4 text-center">
-              <div class="text-2xl font-bold gradient-text">{project.duration}</div>
-              <div class="text-sm text-[#cccccc]">Duration</div>
-            </div>
-            <div class="card p-4 text-center">
-              <div class="text-2xl font-bold gradient-text">{project.teamSize}</div>
-              <div class="text-sm text-[#cccccc]">Team Size</div>
-            </div>
-            <div class="card p-4 text-center">
-              <div class="text-2xl font-bold gradient-text">{project.status}</div>
-              <div class="text-sm text-[#cccccc]">Status</div>
-            </div>
-            <div class="card p-4 text-center">
-              <div class="text-2xl font-bold gradient-text">{project.role}</div>
-              <div class="text-sm text-[#cccccc]">My Role</div>
-            </div>
-          </div>
+      
 
           <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -309,8 +400,8 @@ const { project } = Astro.props;
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {project.gallery.map((image, index) => (
             <div class="card overflow-hidden group">
-              <div class="aspect-video bg-[#2a2a2a] flex items-center justify-center">
-                <div class="text-[#888888] text-sm">Image {index + 1}</div>
+              <div class="aspect-video  flex items-center justify-center">
+                <img src={image} />
               </div>
             </div>
           ))}
@@ -432,25 +523,52 @@ const { project } = Astro.props;
         </h2>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <a href="/project/ecommerce-platform" class="card p-6 hover:scale-105 transition-transform duration-300">
-            <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">E-commerce Platform</h3>
-            <p class="text-[#cccccc] text-sm mb-4">Modern online shopping solution with advanced features</p>
+          <a href="/project/agentic-analytics" class="card p-6 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">Agentic Analytics Platform</h3>
+            <p class="text-[#cccccc] text-sm mb-4">AI-powered analytics with LLM agents</p>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#a9927d]">AI/ML</span>
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#7d674c]">Advanced</span>
+            </div>
+          </a>
+          
+          <a href="/project/nft-marketplace" class="card p-6 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">NFT Marketplace</h3>
+            <p class="text-[#cccccc] text-sm mb-4">Decentralized digital asset trading platform</p>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#a9927d]">Web3</span>
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#7d674c]">Intermediate</span>
+            </div>
+          </a>
+          
+          <a href="/project/ecommerce-fashion" class="card p-6 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">E-commerce Fashion Store</h3>
+            <p class="text-[#cccccc] text-sm mb-4">Modern fashion retail platform with advanced features</p>
             <div class="flex items-center space-x-2">
               <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#a9927d]">E-commerce</span>
               <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#7d674c]">Intermediate</span>
             </div>
           </a>
           
-          <a href="/project/task-management-app" class="card p-6 hover:scale-105 transition-transform duration-300">
-            <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">Task Management App</h3>
-            <p class="text-[#cccccc] text-sm mb-4">Collaborative project management tool</p>
+          <a href="/project/react-dashboard" class="card p-6 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">React Dashboard Application</h3>
+            <p class="text-[#cccccc] text-sm mb-4">Interactive data visualization and analytics platform</p>
             <div class="flex items-center space-x-2">
-              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#a9927d]">Productivity</span>
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#a9927d]">Dashboard</span>
               <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#7d674c]">Intermediate</span>
             </div>
           </a>
           
-          <a href="/" class="card p-6 hover:scale-105 transition-transform duration-300">
+          <a href="/project/visa-agent" class="card p-6 hover:scale-105 transition-transform duration-300">
+            <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">Visa Agent Website</h3>
+            <p class="text-[#cccccc] text-sm mb-4">Professional visa services with CMS and Formspere</p>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#a9927d]">Visa Services</span>
+              <span class="text-xs px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-[#7d674c]">Advanced</span>
+            </div>
+          </a>
+          
+          <a href="/projects" class="card p-6 hover:scale-105 transition-transform duration-300">
             <h3 class="text-xl font-semibold text-[#e5e5e5] mb-2">View All Projects</h3>
             <p class="text-[#cccccc] text-sm mb-4">Explore my complete portfolio</p>
             <div class="flex items-center space-x-2">

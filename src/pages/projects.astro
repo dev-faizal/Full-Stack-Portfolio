@@ -12,7 +12,14 @@ import Contact from '../components/Contact.astro';
  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0f0f0f]/90 backdrop-blur-md border-b border-[#2a2a2a]">
       <div class="container-custom">
         <div class="flex items-center justify-between h-16">
-          <a href="/" class="text-xl font-bold gradient-text">MF</a>
+           <div class="flex-shrink-0">
+        <a href="/" class="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-300">
+       
+          <span class="text-2xl font-extrabold text-[#a9927d]" style="font-family: 'Pacifico', 'Dancing Script', cursive; letter-spacing: 0.05em;">
+            M5
+          </span>
+        </a>
+      </div>
           <a href="/" class="text-sm">
             Home
           </a>
@@ -22,6 +29,153 @@ import Contact from '../components/Contact.astro';
   
   <main>
     <Projects />
+    <div class="container-custom">
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div class="project-card slide-up" style="animation-delay: 0.3s;">
+        <div class="aspect-video bg-[#2a2a2a] rounded-t-xl overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80"
+            alt="E-commerce store with fashion categories for men, women, and children"
+            class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+          />
+        </div>
+        <div class="p-6">
+          <div class="flex items-center space-x-2 mb-3">
+            <span class="px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-xs text-[#a9927d]">E-commerce</span>
+            <span class="px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-xs text-[#7d674c]">Intermediate</span>
+          </div>
+          <h3 class="text-xl font-semibold text-[#e5e5e5] mb-3">E-commerce Fashion Store</h3>
+          <p class="text-[#cccccc] text-sm mb-4">
+            Modern e-commerce platform with fashion categories for men, women, children, and accessories with responsive design and intuitive shopping experience.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tech-badge">HTML5</span>
+            <span class="tech-badge">CSS3</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">Responsive</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <a href="/project/ecommerce-fashion" class="project-link">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <div class="flex space-x-2">
+              <a href="https://ecommerce-fashion-demo.com" target="_blank" rel="noopener noreferrer" class="text-[#a9927d] hover:text-[#7d674c] transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+              <a href="https://github.com/dev-faizal/E-commerce" target="_blank" rel="noopener noreferrer" class="text-[#a9927d] hover:text-[#7d674c] transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Dashboard Application -->
+      <div class="project-card slide-up" style="animation-delay: 0.3s;">
+        <div class="aspect-video bg-[#2a2a2a] rounded-t-xl overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
+            alt="Modern dashboard with charts and analytics"
+            class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+          />
+        </div>
+        <div class="p-6">
+          <div class="flex items-center space-x-2 mb-3">
+            <span class="px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-xs text-[#a9927d]">Dashboard</span>
+            <span class="px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-xs text-[#7d674c]">Intermediate</span>
+          </div>
+          <h3 class="text-xl font-semibold text-[#e5e5e5] mb-3">React Dashboard Application</h3>
+          <p class="text-[#cccccc] text-sm mb-4">
+            Modern dashboard application built with React.js featuring interactive charts, data visualization, and responsive design for comprehensive analytics.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Chart.js</span>
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <a href="/project/react-dashboard" class="project-link">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <div class="flex space-x-2">
+              <a href="https://dashboard-demo.com" target="_blank" rel="noopener noreferrer" class="text-[#a9927d] hover:text-[#7d674c] transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+              <a href="https://github.com/dev-faizal/Dashboard-Application-using-React.js" target="_blank" rel="noopener noreferrer" class="text-[#a9927d] hover:text-[#7d674c] transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visa Agent Website -->
+      <div class="project-card slide-up" style="animation-delay: 0.2s;">
+        <div class="aspect-video bg-[#2a2a2a] rounded-t-xl overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80"
+            alt="Visa Agent website with modern interface and visa services"
+            class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+          />
+        </div>
+        <div class="p-6">
+          <div class="flex items-center space-x-2 mb-3">
+            <span class="px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-xs text-[#a9927d]">Visa Services</span>
+            <span class="px-2 py-1 bg-[#2a2a2a] border border-[#3a3a3a] rounded text-xs text-[#7d674c]">Advanced</span>
+          </div>
+          <h3 class="text-xl font-semibold text-[#e5e5e5] mb-3">Visa Agent Website</h3>
+          <p class="text-[#cccccc] text-sm mb-4">
+            Modern visa services website built with Astro.js featuring CMS integration for content management and Formspere for advanced form handling and client applications.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tech-badge">Astro.js</span>
+            <span class="tech-badge">CMS</span>
+            <span class="tech-badge">Formspere</span>
+            <span class="tech-badge">Tailwind CSS</span>
+            <span class="tech-badge">Visa Services</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <a href="/project/visa-agent" class="project-link">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <div class="flex space-x-2">
+              <a href="https://visa-agent-demo.com" target="_blank" rel="noopener noreferrer" class="text-[#a9927d] hover:text-[#7d674c] transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+              <a href="https://github.com/dev-faizal/visa-agent-website" target="_blank" rel="noopener noreferrer" class="text-[#a9927d] hover:text-[#7d674c] transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
   </main>
   
   <!-- Footer -->

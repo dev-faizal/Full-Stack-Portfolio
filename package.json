@@ -1,7 +1,8 @@
 {
-  "name": "nuclear-nadir",
+  "name": "visa-agent-website",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Visa Agent website with CMS and Formspere integration",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,10 +10,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "animejs": "^4.0.2",
     "astro": "^5.12.0",
+    "@astrojs/content": "^0.8.0",
+    "@astrojs/mdx": "^3.0.0",
+    "@astrojs/tailwind": "^6.0.0",
+    "animejs": "^4.0.2",
     "framer-motion": "^12.23.6",
-    "lucide-react": "^0.525.0"
+    "lucide-react": "^0.525.0",
+    "@contentful/rich-text-html-renderer": "^16.3.0",
+    "contentful": "^10.6.0",
+    "formspere": "^1.0.0",
+    "sharp": "^0.33.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
