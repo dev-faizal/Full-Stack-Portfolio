@@ -11,15 +11,13 @@
   },
   "dependencies": {
     "astro": "^5.12.0",
-    "@astrojs/content": "^0.8.0",
-    "@astrojs/mdx": "^3.0.0",
+    "@astrojs/mdx": "^4.0.0",
     "@astrojs/tailwind": "^6.0.0",
     "animejs": "^4.0.2",
     "framer-motion": "^12.23.6",
     "lucide-react": "^0.525.0",
     "@contentful/rich-text-html-renderer": "^16.3.0",
     "contentful": "^10.6.0",
-    "formspere": "^1.0.0",
     "sharp": "^0.33.0"
   },
   "devDependencies": {

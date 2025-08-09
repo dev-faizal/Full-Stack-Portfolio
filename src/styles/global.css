@@ -44,6 +44,11 @@ body {
   background-color: #0f0f0f;
 }
 
+/* Enable custom cursor only on precise pointers (desktop/mouse) */
+.custom-cursor-enabled {
+  cursor: none;
+}
+
 /* Custom component classes */
 @layer components {
   .container-custom {
@@ -129,6 +134,80 @@ body {
 
 /* Custom utility classes */
 @layer utilities {
+  /* Custom cursor elements */
+  .cursor-dot {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: #a9927d;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 120ms ease, opacity 200ms ease, background-color 200ms ease;
+  }
+  .cursor-outline {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    border: 2px solid rgba(169,146,125,0.7);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 200ms ease, opacity 300ms ease, border-color 200ms ease, background-color 200ms ease;
+  }
+  .cursor-outline.cursor-hover {
+    width: 38px;
+    height: 38px;
+    border-color: rgba(169,146,125,1);
+  }
+  .cursor-dot.cursor-hover {
+    width: 8px;
+    height: 8px;
+    background: #c5b29a;
+  }
+  .cursor-trail-dot {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    background: rgba(169,146,125,0.6);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.8;
+  }
+  .cursor-click-ripple {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    border: 2px solid rgba(169,146,125,0.8);
+    transform: translate(-50%, -50%) scale(0.2);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.9;
+  }
+  .cursor-hidden { opacity: 0; }
+  .cursor-visible { opacity: 1; }
+
+  /* Improve animation crispness and smoothness */
+  .will-change-transform {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   .gradient-text {
     background: linear-gradient(135deg, #a9927d 0%, #7d674c 100%);
     -webkit-background-clip: text;

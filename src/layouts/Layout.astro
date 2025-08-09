@@ -28,6 +28,9 @@ const { title, description = "Mohammad Faizal - Full Stack Developer Portfolio" 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   </head>
   <body class="bg-[#0f0f0f] text-[#e5e5e5] font-['Inter']">
+    <!-- Custom Cursor Elements -->
+    <div id="cursor-dot" class="cursor-dot cursor-visible will-change-transform"></div>
+    <div id="cursor-outline" class="cursor-outline cursor-visible will-change-transform"></div>
     <!-- Animated Background -->
     <div id="animated-bg" class="fixed inset-0 pointer-events-none z-0"></div>
     
@@ -54,6 +57,87 @@ const { title, description = "Mohammad Faizal - Full Stack Developer Portfolio" 
 <script>
   // Anime.js animations
   document.addEventListener('DOMContentLoaded', function() {
+    // Custom Cursor (desktop only)
+    const enableCustomCursor = window.matchMedia('(pointer: fine)').matches;
+    if (enableCustomCursor) {
+      document.documentElement.classList.add('custom-cursor-enabled');
+      const cursorDot = document.getElementById('cursor-dot');
+      const cursorOutline = document.getElementById('cursor-outline');
+      let lastX = 0, lastY = 0;
+      let rafId = null;
+      const trailDots = [];
+      const maxTrail = 10;
+
+      const moveCursor = (x, y) => {
+        if (!cursorDot || !cursorOutline) return;
+        cursorDot.style.transform = `translate(${x}px, ${y}px)`;
+        cursorOutline.style.transform = `translate(${x}px, ${y}px)`;
+      };
+
+      const onMouseMove = (e) => {
+        lastX = e.clientX; lastY = e.clientY;
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => moveCursor(lastX, lastY));
+
+        // Create subtle trailing dots (no React/framer-motion, pure JS)
+        const dot = document.createElement('div');
+        dot.className = 'cursor-trail-dot will-change-transform';
+        dot.style.transform = `translate(${lastX}px, ${lastY}px)`;
+        document.body.appendChild(dot);
+        trailDots.push(dot);
+        setTimeout(() => {
+          dot.style.transition = 'transform 500ms ease, opacity 600ms ease';
+          dot.style.transform = `translate(${lastX + (Math.random()*8-4)}px, ${lastY + (Math.random()*8-4)}px)`;
+          dot.style.opacity = '0';
+        }, 0);
+        // Clean up old dots
+        if (trailDots.length > maxTrail) {
+          const old = trailDots.shift();
+          old && old.remove();
+        }
+        setTimeout(() => dot.remove(), 700);
+      };
+
+      window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('mouseleave', () => {
+        cursorDot?.classList.add('cursor-hidden');
+        cursorOutline?.classList.add('cursor-hidden');
+      });
+      window.addEventListener('mouseenter', () => {
+        cursorDot?.classList.remove('cursor-hidden');
+        cursorOutline?.classList.remove('cursor-hidden');
+      });
+
+      // Emphasis on interactive elements
+      const interactiveSelectors = 'a, button, [role="button"], input, textarea, select, .card, .project-link';
+      document.querySelectorAll(interactiveSelectors).forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+          if (!cursorOutline || !cursorDot) return;
+          cursorOutline.classList.add('cursor-hover');
+          cursorDot.classList.add('cursor-hover');
+        });
+        el.addEventListener('mouseleave', () => {
+          if (!cursorOutline || !cursorDot) return;
+          cursorOutline.classList.remove('cursor-hover');
+          cursorDot.classList.remove('cursor-hover');
+        });
+      });
+
+      // Click ripple effect
+      window.addEventListener('click', (e) => {
+        const ripple = document.createElement('div');
+        ripple.className = 'cursor-click-ripple will-change-transform';
+        ripple.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(0.2)`;
+        document.body.appendChild(ripple);
+        requestAnimationFrame(() => {
+          ripple.style.transition = 'transform 300ms ease, opacity 400ms ease, border-color 300ms ease';
+          ripple.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(2)`;
+          ripple.style.opacity = '0';
+          ripple.style.borderColor = 'rgba(169,146,125,0.4)';
+        });
+        setTimeout(() => ripple.remove(), 450);
+      });
+    }
     // Check if anime.js is loaded
     if (typeof anime === 'undefined') {
       console.log('Anime.js not loaded, skipping animations');
