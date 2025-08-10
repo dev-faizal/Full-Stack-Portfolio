@@ -37,6 +37,12 @@ const { title, description = "Mohammad Faizal - Full Stack Developer Portfolio" 
     <!-- Floating Particles -->
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
     
+    <!-- Gradient Mesh Background -->
+    <div id="gradient-mesh" class="fixed inset-0 pointer-events-none z-0"></div>
+    
+    <!-- Animated Grid -->
+    <div id="animated-grid" class="fixed inset-0 pointer-events-none z-0"></div>
+    
     <!-- Main Content -->
     <div class="relative z-10">
       <slot />
@@ -68,233 +74,320 @@ const { title, description = "Mohammad Faizal - Full Stack Developer Portfolio" 
   function initAnimations() {
     // Anime.js animations
     document.addEventListener('DOMContentLoaded', function() {
-    // Custom Cursor (desktop only)
-    const enableCustomCursor = window.matchMedia('(pointer: fine)').matches;
-    if (enableCustomCursor) {
-      document.documentElement.classList.add('custom-cursor-enabled');
-      const cursorDot = document.getElementById('cursor-dot');
-      const cursorOutline = document.getElementById('cursor-outline');
-      let lastX = 0, lastY = 0;
-      let rafId = null;
-      const trailDots = [];
-      const maxTrail = 10;
+      // Custom Cursor (desktop only)
+      const enableCustomCursor = window.matchMedia('(pointer: fine)').matches;
+      if (enableCustomCursor) {
+        document.documentElement.classList.add('custom-cursor-enabled');
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorOutline = document.getElementById('cursor-outline');
+        let lastX = 0, lastY = 0;
+        let rafId = null;
+        const trailDots = [];
+        const maxTrail = 10;
 
-      const moveCursor = (x, y) => {
-        if (!cursorDot || !cursorOutline) return;
-        cursorDot.style.transform = `translate(${x}px, ${y}px)`;
-        cursorOutline.style.transform = `translate(${x}px, ${y}px)`;
-      };
+        const moveCursor = (x, y) => {
+          if (!cursorDot || !cursorOutline) return;
+          cursorDot.style.transform = `translate(${x}px, ${y}px)`;
+          cursorOutline.style.transform = `translate(${x}px, ${y}px)`;
+        };
 
-      const onMouseMove = (e) => {
-        lastX = e.clientX; lastY = e.clientY;
-        if (rafId) cancelAnimationFrame(rafId);
-        rafId = requestAnimationFrame(() => moveCursor(lastX, lastY));
+        const onMouseMove = (e) => {
+          lastX = e.clientX; lastY = e.clientY;
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(() => moveCursor(lastX, lastY));
 
-        // Create subtle trailing dots (no React/framer-motion, pure JS)
-        const dot = document.createElement('div');
-        dot.className = 'cursor-trail-dot will-change-transform';
-        dot.style.transform = `translate(${lastX}px, ${lastY}px)`;
-        document.body.appendChild(dot);
-        trailDots.push(dot);
-        setTimeout(() => {
-          dot.style.transition = 'transform 500ms ease, opacity 600ms ease';
-          dot.style.transform = `translate(${lastX + (Math.random()*8-4)}px, ${lastY + (Math.random()*8-4)}px)`;
-          dot.style.opacity = '0';
-        }, 0);
-        // Clean up old dots
-        if (trailDots.length > maxTrail) {
-          const old = trailDots.shift();
-          old && old.remove();
-        }
-        setTimeout(() => dot.remove(), 700);
-      };
+          // Create subtle trailing dots (no React/framer-motion, pure JS)
+          const dot = document.createElement('div');
+          dot.className = 'cursor-trail-dot will-change-transform';
+          dot.style.transform = `translate(${lastX}px, ${lastY}px)`;
+          document.body.appendChild(dot);
+          trailDots.push(dot);
+          setTimeout(() => {
+            dot.style.transition = 'transform 500ms ease, opacity 600ms ease';
+            dot.style.transform = `translate(${lastX + (Math.random()*8-4)}px, ${lastY + (Math.random()*8-4)}px)`;
+            dot.style.opacity = '0';
+          }, 0);
+          // Clean up old dots
+          if (trailDots.length > maxTrail) {
+            const old = trailDots.shift();
+            old && old.remove();
+          }
+          setTimeout(() => dot.remove(), 700);
+        };
 
-      window.addEventListener('mousemove', onMouseMove);
-      window.addEventListener('mouseleave', () => {
-        cursorDot?.classList.add('cursor-hidden');
-        cursorOutline?.classList.add('cursor-hidden');
-      });
-      window.addEventListener('mouseenter', () => {
-        cursorDot?.classList.remove('cursor-hidden');
-        cursorOutline?.classList.remove('cursor-hidden');
-      });
-
-      // Emphasis on interactive elements
-      const interactiveSelectors = 'a, button, [role="button"], input, textarea, select, .card, .project-link';
-      document.querySelectorAll(interactiveSelectors).forEach((el) => {
-        el.addEventListener('mouseenter', () => {
-          if (!cursorOutline || !cursorDot) return;
-          cursorOutline.classList.add('cursor-hover');
-          cursorDot.classList.add('cursor-hover');
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseleave', () => {
+          cursorDot?.classList.add('cursor-hidden');
+          cursorOutline?.classList.add('cursor-hidden');
         });
-        el.addEventListener('mouseleave', () => {
-          if (!cursorOutline || !cursorDot) return;
-          cursorOutline.classList.remove('cursor-hover');
-          cursorDot.classList.remove('cursor-hover');
+        window.addEventListener('mouseenter', () => {
+          cursorDot?.classList.remove('cursor-hidden');
+          cursorOutline?.classList.remove('cursor-hidden');
         });
-      });
 
-      // Click ripple effect
-      window.addEventListener('click', (e) => {
-        const ripple = document.createElement('div');
-        ripple.className = 'cursor-click-ripple will-change-transform';
-        ripple.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(0.2)`;
-        document.body.appendChild(ripple);
-        requestAnimationFrame(() => {
-          ripple.style.transition = 'transform 300ms ease, opacity 400ms ease, border-color 300ms ease';
-          ripple.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(2)`;
-          ripple.style.opacity = '0';
-          ripple.style.borderColor = 'rgba(169,146,125,0.4)';
+        // Emphasis on interactive elements
+        const interactiveSelectors = 'a, button, [role="button"], input, textarea, select, .card, .project-link';
+        document.querySelectorAll(interactiveSelectors).forEach((el) => {
+          el.addEventListener('mouseenter', () => {
+            if (!cursorOutline || !cursorDot) return;
+            cursorOutline.classList.add('cursor-hover');
+            cursorDot.classList.add('cursor-hover');
+          });
+          el.addEventListener('mouseleave', () => {
+            if (!cursorOutline || !cursorDot) return;
+            cursorOutline.classList.remove('cursor-hover');
+            cursorDot.classList.remove('cursor-hover');
+          });
         });
-        setTimeout(() => ripple.remove(), 450);
-      });
-    }
-    
-    // Animated background
-    const animatedBg = document.getElementById('animated-bg');
-    if (animatedBg) {
-      // Create gradient circles
-      for (let i = 0; i < 5; i++) {
-        const circle = document.createElement('div');
-        circle.className = 'absolute rounded-full opacity-20';
-        circle.style.width = Math.random() * 300 + 100 + 'px';
-        circle.style.height = circle.style.width;
-        circle.style.left = Math.random() * 100 + '%';
-        circle.style.top = Math.random() * 100 + '%';
-        circle.style.background = `radial-gradient(circle, ${i % 2 === 0 ? '#a9927d' : '#7d674c'}20, transparent)`;
-        animatedBg.appendChild(circle);
-        
-        // Animate circles
-        anime({
-          targets: circle,
-          translateX: anime.random(-100, 100),
-          translateY: anime.random(-100, 100),
-          scale: anime.random(0.5, 1.5),
-          duration: anime.random(8000, 15000),
-          direction: 'alternate',
-          loop: true,
-          easing: 'easeInOutQuad'
+
+        // Click ripple effect
+        window.addEventListener('click', (e) => {
+          const ripple = document.createElement('div');
+          ripple.className = 'cursor-click-ripple will-change-transform';
+          ripple.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(0.2)`;
+          document.body.appendChild(ripple);
+          requestAnimationFrame(() => {
+            ripple.style.transition = 'transform 300ms ease, opacity 400ms ease, border-color 300ms ease';
+            ripple.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(2)`;
+            ripple.style.opacity = '0';
+            ripple.style.borderColor = 'rgba(169,146,125,0.4)';
+          });
+          setTimeout(() => ripple.remove(), 450);
         });
       }
-    }
-    
-    // Floating particles
-    const particles = document.getElementById('particles');
-    if (particles) {
-      for (let i = 0; i < 20; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'absolute w-1 h-1 bg-[#a9927d] rounded-full';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.opacity = Math.random() * 0.5 + 0.1;
-        particles.appendChild(particle);
+      
+      // Enhanced animated background
+      const animatedBg = document.getElementById('animated-bg');
+      if (animatedBg) {
+        // Create gradient circles with enhanced effects
+        for (let i = 0; i < 8; i++) {
+          const circle = document.createElement('div');
+          circle.className = 'absolute rounded-full opacity-15';
+          circle.style.width = Math.random() * 400 + 150 + 'px';
+          circle.style.height = circle.style.width;
+          circle.style.left = Math.random() * 100 + '%';
+          circle.style.top = Math.random() * 100 + '%';
+          circle.style.background = `radial-gradient(circle, ${i % 3 === 0 ? '#a9927d' : i % 3 === 1 ? '#7d674c' : '#5a4a3a'}15, transparent)`;
+          circle.style.filter = 'blur(1px)';
+          animatedBg.appendChild(circle);
+          
+          // Enhanced circle animations
+          anime({
+            targets: circle,
+            translateX: anime.random(-150, 150),
+            translateY: anime.random(-150, 150),
+            scale: anime.random(0.3, 2),
+            rotate: anime.random(0, 360),
+            duration: anime.random(12000, 20000),
+            direction: 'alternate',
+            loop: true,
+            easing: 'easeInOutSine'
+          });
+        }
+      }
+      
+      // Gradient mesh background
+      const gradientMesh = document.getElementById('gradient-mesh');
+      if (gradientMesh) {
+        // Create animated gradient overlay
+        const meshOverlay = document.createElement('div');
+        meshOverlay.className = 'absolute inset-0';
+        meshOverlay.style.background = 'radial-gradient(ellipse at 20% 80%, rgba(169, 146, 125, 0.1) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(125, 103, 76, 0.1) 0%, transparent 50%)';
+        meshOverlay.style.filter = 'blur(40px)';
+        gradientMesh.appendChild(meshOverlay);
         
-        // Animate particles
+        // Animate the mesh overlay
         anime({
-          targets: particle,
-          translateY: anime.random(-200, 200),
-          translateX: anime.random(-200, 200),
-          scale: anime.random(0.5, 2),
-          opacity: [0.1, 0.8, 0.1],
-          duration: anime.random(3000, 8000),
+          targets: meshOverlay,
+          background: [
+            'radial-gradient(ellipse at 20% 80%, rgba(169, 146, 125, 0.1) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(125, 103, 76, 0.1) 0%, transparent 50%)',
+            'radial-gradient(ellipse at 80% 80%, rgba(169, 146, 125, 0.1) 0%, transparent 50%), radial-gradient(ellipse at 20% 20%, rgba(125, 103, 76, 0.1) 0%, transparent 50%)',
+            'radial-gradient(ellipse at 20% 80%, rgba(169, 146, 125, 0.1) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(125, 103, 76, 0.1) 0%, transparent 50%)'
+          ],
+          duration: 15000,
           loop: true,
           easing: 'easeInOutSine'
         });
       }
-    }
-    
-    // Scroll progress bar
-    const scrollProgress = document.getElementById('scroll-progress');
-    const scrollToTop = document.getElementById('scroll-to-top');
-    
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset;
-      const docHeight = document.body.offsetHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
       
-      if (scrollProgress) {
-        scrollProgress.style.width = scrollPercent + '%';
-      }
-      
-      if (scrollToTop) {
-        if (scrollTop > 300) {
-          scrollToTop.style.opacity = '1';
-          scrollToTop.style.pointerEvents = 'auto';
-        } else {
-          scrollToTop.style.opacity = '0';
-          scrollToTop.style.pointerEvents = 'none';
+      // Animated grid background
+      const animatedGrid = document.getElementById('animated-grid');
+      if (animatedGrid) {
+        // Create grid pattern
+        const gridSize = 60;
+        const gridColumns = Math.ceil(window.innerWidth / gridSize) + 2;
+        const gridRows = Math.ceil(window.innerHeight / gridSize) + 2;
+        
+        for (let i = 0; i < gridColumns; i++) {
+          for (let j = 0; j < gridRows; j++) {
+            const gridDot = document.createElement('div');
+            gridDot.className = 'absolute w-0.5 h-0.5 bg-[#a9927d] rounded-full opacity-20';
+            gridDot.style.left = (i * gridSize) + 'px';
+            gridDot.style.top = (j * gridSize) + 'px';
+            animatedGrid.appendChild(gridDot);
+            
+            // Animate grid dots with staggered timing
+            anime({
+              targets: gridDot,
+              opacity: [0.2, 0.6, 0.2],
+              scale: [1, 1.5, 1],
+              duration: 3000,
+              delay: (i + j) * 100,
+              loop: true,
+              easing: 'easeInOutSine'
+            });
+          }
         }
       }
-    });
-    
-    // Scroll to top functionality
-    if (scrollToTop) {
-      scrollToTop.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-    }
-    
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Add entrance animation
+      
+      // Enhanced floating particles
+      const particles = document.getElementById('particles');
+      if (particles) {
+        for (let i = 0; i < 30; i++) {
+          const particle = document.createElement('div');
+          const size = Math.random() * 3 + 1;
+          particle.className = 'absolute rounded-full';
+          particle.style.width = size + 'px';
+          particle.style.height = size + 'px';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.top = Math.random() * 100 + '%';
+          particle.style.opacity = Math.random() * 0.6 + 0.2;
+          
+          // Randomize particle colors
+          const colors = ['#a9927d', '#7d674c', '#5a4a3a', '#e5e5e5'];
+          particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+          
+          particles.appendChild(particle);
+          
+          // Enhanced particle animations
           anime({
-            targets: entry.target,
-            translateY: [30, 0],
-            opacity: [0, 1],
-            duration: 800,
-            easing: 'easeOutCubic'
+            targets: particle,
+            translateY: anime.random(-300, 300),
+            translateX: anime.random(-300, 300),
+            scale: anime.random(0.3, 2.5),
+            opacity: [0.2, 0.8, 0.2],
+            rotate: anime.random(0, 360),
+            duration: anime.random(5000, 12000),
+            loop: true,
+            easing: 'easeInOutSine',
+            direction: 'alternate'
           });
         }
-      });
-    }, observerOptions);
-    
-    // Observe all sections
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
-    
-    // Parallax effect for hero section
-    const hero = document.querySelector('#hero');
-    if (hero) {
+      }
+      
+      // Scroll progress bar
+      const scrollProgress = document.getElementById('scroll-progress');
+      const scrollToTop = document.getElementById('scroll-to-top');
+      
       window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.offsetHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        if (scrollProgress) {
+          scrollProgress.style.width = scrollPercent + '%';
+        }
+        
+        if (scrollToTop) {
+          if (scrollTop > 300) {
+            scrollToTop.style.opacity = '1';
+            scrollToTop.style.pointerEvents = 'auto';
+          } else {
+            scrollToTop.style.opacity = '0';
+            scrollToTop.style.pointerEvents = 'none';
+          }
+        }
       });
-    }
-    
-    // Hover animations for cards
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        anime({
-          targets: card,
-          scale: 1.05,
-          duration: 300,
-          easing: 'easeOutCubic'
+      
+      // Scroll to top functionality
+      if (scrollToTop) {
+        scrollToTop.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+      
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add entrance animation
+            anime({
+              targets: entry.target,
+              translateY: [30, 0],
+              opacity: [0, 1],
+              duration: 800,
+              easing: 'easeOutCubic'
+            });
+          }
+        });
+      }, observerOptions);
+      
+      // Observe all sections
+      document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+      });
+      
+      // Parallax effect for hero section
+      const hero = document.querySelector('#hero');
+      if (hero) {
+        window.addEventListener('scroll', () => {
+          const scrolled = window.pageYOffset;
+          const rate = scrolled * -0.5;
+          hero.style.transform = `translateY(${rate}px)`;
+        });
+      }
+      
+      // Hover animations for cards
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          anime({
+            targets: card,
+            scale: 1.05,
+            duration: 300,
+            easing: 'easeOutCubic'
+          });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          anime({
+            targets: card,
+            scale: 1,
+            duration: 300,
+            easing: 'easeOutCubic'
+          });
         });
       });
       
-      card.addEventListener('mouseleave', () => {
-        anime({
-          targets: card,
-          scale: 1,
-          duration: 300,
-          easing: 'easeOutCubic'
-        });
+      // Add mouse movement effect to background elements
+      document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+        
+        // Subtle parallax effect on gradient mesh
+        const gradientMesh = document.getElementById('gradient-mesh');
+        if (gradientMesh) {
+          const meshOverlay = gradientMesh.querySelector('div');
+          if (meshOverlay) {
+            meshOverlay.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
+          }
+        }
+        
+        // Subtle movement on animated background
+        const animatedBg = document.getElementById('animated-bg');
+        if (animatedBg) {
+          animatedBg.style.transform = `translate(${mouseX * -10}px, ${mouseY * -10}px)`;
+        }
       });
     });
-  });
   }
   
   // Start waiting for Anime.js

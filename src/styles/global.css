@@ -255,3 +255,45 @@ body {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+
+/* Background animation enhancements */
+#animated-bg {
+  overflow: hidden;
+}
+
+#gradient-mesh {
+  mix-blend-mode: soft-light;
+}
+
+#animated-grid {
+  mix-blend-mode: overlay;
+}
+
+/* Smooth transitions for all background elements */
+#animated-bg > div,
+#particles > div,
+#gradient-mesh > div,
+#animated-grid > div {
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments for background animations */
+@media (max-width: 768px) {
+  #animated-grid {
+    opacity: 0.3;
+  }
+  
+  #animated-bg > div {
+    transform: scale(0.8);
+  }
+}
+
+/* Performance optimizations */
+#animated-bg,
+#particles,
+#gradient-mesh,
+#animated-grid {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
