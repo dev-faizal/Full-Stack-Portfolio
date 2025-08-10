@@ -25,7 +25,7 @@ const { title, description = "Mohammad Faizal - Full Stack Developer Portfolio" 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Anime.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" crossorigin="anonymous"></script>
   </head>
   <body class="bg-[#0f0f0f] text-[#e5e5e5] font-['Inter']">
     <!-- Custom Cursor Elements -->
@@ -55,8 +55,19 @@ const { title, description = "Mohammad Faizal - Full Stack Developer Portfolio" 
 </html>
 
 <script>
-  // Anime.js animations
-  document.addEventListener('DOMContentLoaded', function() {
+  // Wait for Anime.js to load
+  function waitForAnime() {
+    if (typeof anime !== 'undefined') {
+      initAnimations();
+    } else {
+      setTimeout(waitForAnime, 100);
+    }
+  }
+  
+  // Initialize animations once Anime.js is loaded
+  function initAnimations() {
+    // Anime.js animations
+    document.addEventListener('DOMContentLoaded', function() {
     // Custom Cursor (desktop only)
     const enableCustomCursor = window.matchMedia('(pointer: fine)').matches;
     if (enableCustomCursor) {
@@ -137,11 +148,6 @@ const { title, description = "Mohammad Faizal - Full Stack Developer Portfolio" 
         });
         setTimeout(() => ripple.remove(), 450);
       });
-    }
-    // Check if anime.js is loaded
-    if (typeof anime === 'undefined') {
-      console.log('Anime.js not loaded, skipping animations');
-      return;
     }
     
     // Animated background
@@ -289,4 +295,8 @@ const { title, description = "Mohammad Faizal - Full Stack Developer Portfolio" 
       });
     });
   });
+  }
+  
+  // Start waiting for Anime.js
+  waitForAnime();
 </script> 
