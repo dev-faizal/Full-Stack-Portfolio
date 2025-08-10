@@ -9,7 +9,7 @@
         <span class="gradient-text">About Me</span>
       </h2>
       <p class="text-xl text-[#cccccc] max-w-3xl mx-auto">
-        Passionate Full Stack Developer with 4.5+ years of experience crafting innovative digital solutions
+        Passionate Full Stack Developer with 4+ years of experience crafting innovative digital solutions
       </p>
     </div>
     
@@ -31,7 +31,7 @@
         <!-- Quick Stats -->
         <div class="grid grid-cols-2 gap-6 mt-8">
           <div class="stat-card">
-            <div class="text-3xl font-bold gradient-text">4.5+</div>
+            <div class="text-3xl font-bold gradient-text">4+</div>
             <div class="text-[#cccccc]">Years Experience</div>
           </div>
           <div class="stat-card">
@@ -190,23 +190,227 @@
 </style>
 
 <script>
-  // Intersection Observer for animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
+  // Enhanced About animations with anime.js
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if anime.js is loaded
+    if (typeof anime === 'undefined') {
+      console.log('Anime.js not loaded, skipping animations');
+      return;
+    }
+    
+    // Staggered entrance animations for stat cards
+    const statCards = document.querySelectorAll('.stat-card');
+    
+    // Initial entrance animation
+    anime({
+      targets: statCards,
+      opacity: [0, 1],
+      translateY: [50, 0],
+      scale: [0.9, 1],
+      duration: 800,
+      delay: anime.stagger(150),
+      easing: 'easeOutCubic'
     });
-  }, observerOptions);
-  
-  // Observe all animated elements
-  document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
-    observer.observe(el);
+    
+    // Animate section title and description
+    const sectionTitle = document.querySelector('#about h2');
+    const sectionDesc = document.querySelector('#about p');
+    
+    if (sectionTitle) {
+      anime({
+        targets: sectionTitle,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 1000,
+        easing: 'easeOutBack'
+      });
+    }
+    
+    if (sectionDesc) {
+      anime({
+        targets: sectionDesc,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 800,
+        delay: 200,
+        easing: 'easeOutCubic'
+      });
+    }
+    
+    // Animate education cards
+    const educationCards = document.querySelectorAll('.education-card');
+    
+    anime({
+      targets: educationCards,
+      opacity: [0, 1],
+      translateX: [50, 0],
+      scale: [0.95, 1],
+      duration: 800,
+      delay: anime.stagger(200),
+      easing: 'easeOutCubic'
+    });
+    
+    // Hover animations for stat cards
+    statCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        anime({
+          targets: card,
+          scale: [1, 1.05],
+          translateY: [0, -5],
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+        
+        // Animate the number inside
+        const number = card.querySelector('.text-3xl');
+        if (number) {
+          anime({
+            targets: number,
+            scale: [1, 1.2],
+            duration: 300,
+            easing: 'easeOutCubic'
+          });
+        }
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        anime({
+          targets: card,
+          scale: [1.05, 1],
+          translateY: [-5, 0],
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+        
+        // Reset number scale
+        const number = card.querySelector('.text-3xl');
+        if (number) {
+          anime({
+            targets: number,
+            scale: [1.2, 1],
+            duration: 300,
+            easing: 'easeOutCubic'
+          });
+        }
+      });
+    });
+    
+    // Hover animations for education cards
+    educationCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        anime({
+          targets: card,
+          scale: [1, 1.02],
+          translateX: [0, 5],
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        anime({
+          targets: card,
+          scale: [1.02, 1],
+          translateX: [5, 0],
+          duration: 300,
+          easing: 'easeOutCubic'
+        });
+      });
+    });
+    
+    // Animate tech badges on hover
+    document.querySelectorAll('.skill-tag').forEach(badge => {
+      badge.addEventListener('mouseenter', () => {
+        anime({
+          targets: badge,
+          scale: [1, 1.15],
+          rotateY: [0, 10],
+          duration: 200,
+          easing: 'easeOutCubic'
+        });
+      });
+      
+      badge.addEventListener('mouseleave', () => {
+        anime({
+          targets: badge,
+          scale: [1.15, 1],
+          rotateY: [10, 0],
+          duration: 200,
+          easing: 'easeOutCubic'
+        });
+      });
+    });
+    
+    // Animate personal info section
+    const personalInfo = document.querySelector('.personal-info');
+    if (personalInfo) {
+      anime({
+        targets: personalInfo,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 1000,
+        delay: 400,
+        easing: 'easeOutCubic'
+      });
+    }
+    
+    // Scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate elements when they come into view
+          const visibleCards = entry.target.querySelectorAll('.stat-card, .education-card');
+          anime({
+            targets: visibleCards,
+            opacity: [0, 1],
+            translateY: [30, 0],
+            scale: [0.9, 1],
+            duration: 600,
+            delay: anime.stagger(100),
+            easing: 'easeOutCubic'
+          });
+        }
+      });
+    }, observerOptions);
+    
+    const aboutSection = document.querySelector('#about');
+    if (aboutSection) {
+      observer.observe(aboutSection);
+    }
+    
+    // Floating animation for background elements
+    const backgroundElements = document.querySelectorAll('.stat-card::before, .education-card::before');
+    if (backgroundElements.length > 0) {
+      anime({
+        targets: backgroundElements,
+        translateY: [-3, 3],
+        opacity: [0.2, 0.5, 0.2],
+        duration: 3000,
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutSine',
+        delay: anime.stagger(400)
+      });
+    }
+    
+    // Counter animation for stats (if numbers are present)
+    const statNumbers = document.querySelectorAll('.stat-card .text-3xl');
+    statNumbers.forEach((number, index) => {
+      const targetValue = parseInt(number.textContent) || 0;
+      
+      anime({
+        targets: number,
+        innerHTML: [0, targetValue],
+        duration: 2000,
+        delay: 1000 + (index * 200),
+        easing: 'easeOutCubic',
+        round: 1
+      });
+    });
   });
 </script> 

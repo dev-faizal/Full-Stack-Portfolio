@@ -296,23 +296,232 @@
 </style>
 
 <script>
-  // Intersection Observer for animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+  // Enhanced Experience animations with anime.js
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if anime.js is loaded
+    if (typeof anime === 'undefined') {
+      console.log('Anime.js not loaded, skipping animations');
+      return;
+    }
+    
+    // Staggered entrance animations for experience cards
+    const experienceCards = document.querySelectorAll('.experience-card, .certification-card');
+    
+    // Initial entrance animation
+    anime({
+      targets: experienceCards,
+      opacity: [0, 1],
+      translateY: [50, 0],
+      scale: [0.95, 1],
+      duration: 800,
+      delay: anime.stagger(200),
+      easing: 'easeOutCubic'
+    });
+    
+    // Animate section title and description
+    const sectionTitle = document.querySelector('#experience h2');
+    const sectionDesc = document.querySelector('#experience p');
+    
+    if (sectionTitle) {
+      anime({
+        targets: sectionTitle,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 1000,
+        easing: 'easeOutBack'
+      });
+    }
+    
+    if (sectionDesc) {
+      anime({
+        targets: sectionDesc,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 800,
+        delay: 200,
+        easing: 'easeOutCubic'
+      });
+    }
+    
+    // Enhanced collapsible animations
+    const experienceItems = document.querySelectorAll('.experience-item');
+    
+    experienceItems.forEach((item, index) => {
+      const summary = item.querySelector('.experience-summary');
+      const content = item.querySelector('.experience-content');
+      const chevron = item.querySelector('.chevron');
+      
+      if (summary && content && chevron) {
+        // Initial state for non-open items
+        if (!item.hasAttribute('open')) {
+          content.style.maxHeight = '0px';
+          content.style.opacity = '0';
+        }
+        
+        summary.addEventListener('click', () => {
+          const isOpen = item.hasAttribute('open');
+          
+          if (isOpen) {
+            // Closing animation
+            anime({
+              targets: content,
+              maxHeight: [content.scrollHeight + 'px', '0px'],
+              opacity: [1, 0],
+              duration: 400,
+              easing: 'easeOutCubic'
+            });
+            
+            anime({
+              targets: chevron,
+              rotate: [180, 0],
+              duration: 300,
+              easing: 'easeOutCubic'
+            });
+          } else {
+            // Opening animation
+            anime({
+              targets: content,
+              maxHeight: ['0px', content.scrollHeight + 'px'],
+              opacity: [0, 1],
+              duration: 400,
+              easing: 'easeOutCubic'
+            });
+            
+            anime({
+              targets: chevron,
+              rotate: [0, 180],
+              duration: 300,
+              easing: 'easeOutCubic'
+            });
+          }
+        });
+        
+        // Hover effects for experience items
+        item.addEventListener('mouseenter', () => {
+          anime({
+            targets: item,
+            translateX: [0, 5],
+            scale: [1, 1.01],
+            duration: 300,
+            easing: 'easeOutCubic'
+          });
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          anime({
+            targets: item,
+            translateX: [5, 0],
+            scale: [1.01, 1],
+            duration: 300,
+            easing: 'easeOutCubic'
+          });
+        });
       }
     });
-  }, observerOptions);
-  
-  // Observe all animated elements
-  document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
-    observer.observe(el);
+    
+    // Animate tech badges on hover
+    document.querySelectorAll('.tech-badge').forEach(badge => {
+      badge.addEventListener('mouseenter', () => {
+        anime({
+          targets: badge,
+          scale: [1, 1.1],
+          rotateY: [0, 8],
+          duration: 200,
+          easing: 'easeOutCubic'
+        });
+      });
+      
+      badge.addEventListener('mouseleave', () => {
+        anime({
+          targets: badge,
+          scale: [1.1, 1],
+          rotateY: [8, 0],
+          duration: 200,
+          easing: 'easeOutCubic'
+        });
+      });
+    });
+    
+    // Animate company names and positions
+    const companyNames = document.querySelectorAll('.company-name');
+    const positions = document.querySelectorAll('.position');
+    
+    anime({
+      targets: companyNames,
+      opacity: [0, 1],
+      translateX: [-20, 0],
+      duration: 600,
+      delay: anime.stagger(100),
+      easing: 'easeOutCubic'
+    });
+    
+    anime({
+      targets: positions,
+      opacity: [0, 1],
+      translateX: [20, 0],
+      duration: 600,
+      delay: anime.stagger(100),
+      easing: 'easeOutCubic'
+    });
+    
+    // Scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate experience cards when they come into view
+          const visibleCards = entry.target.querySelectorAll('.experience-card, .certification-card');
+          anime({
+            targets: visibleCards,
+            opacity: [0, 1],
+            translateY: [30, 0],
+            scale: [0.95, 1],
+            duration: 600,
+            delay: anime.stagger(150),
+            easing: 'easeOutCubic'
+          });
+        }
+      });
+    }, observerOptions);
+    
+    const experienceSection = document.querySelector('#experience');
+    if (experienceSection) {
+      observer.observe(experienceSection);
+    }
+    
+    // Animate stats section if present
+    const statsSection = document.querySelector('.stats-grid');
+    if (statsSection) {
+      const statItems = statsSection.querySelectorAll('.stat-item');
+      
+      anime({
+        targets: statItems,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        scale: [0.9, 1],
+        duration: 800,
+        delay: anime.stagger(200),
+        easing: 'easeOutBack'
+      });
+    }
+    
+    // Floating animation for background elements
+    const backgroundElements = document.querySelectorAll('.experience-card::before, .certification-card::before');
+    if (backgroundElements.length > 0) {
+      anime({
+        targets: backgroundElements,
+        translateY: [-5, 5],
+        opacity: [0.3, 0.6, 0.3],
+        duration: 4000,
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutSine',
+        delay: anime.stagger(500)
+      });
+    }
   });
 </script> 
